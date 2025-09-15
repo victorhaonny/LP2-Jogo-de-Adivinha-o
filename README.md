@@ -1,2 +1,2 @@
-# LP2-Jogo-de-Adivinha-o
+# LP2-Jogo-de-Adivinha
 Jogo de Adivinhação(Filmes, Series, Desenho)
