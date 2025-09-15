@@ -20,7 +20,7 @@ Este projeto foi criado como parte da disciplina **LP2** e tem como objetivo apl
 - Ponteiros
 - Funçãos
 - Struct
-- Manipulação de memoira   
+- Manipulação de memoria   
 
 ---
 
@@ -39,7 +39,7 @@ git clone https://github.com/victorhaonny/LP2-Jogo-de-Adivinha-o.git
 cd LP2-Jogo-de-Adivinha-o
 ```
 
-Como compilar e execute:
+Como compilar e executar:
 
 ```
 gcc main.c funcoes.c -o Jogo_Adivinha
