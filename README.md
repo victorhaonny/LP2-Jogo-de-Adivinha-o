@@ -4,7 +4,7 @@ jogo de adivinhação (CLI) desenvolvido em **Linguagem de Programação c (LP2)
 
 ---
 
-## Alunos
+## Sumario
 - [Sobre](#-sobre)
 - [Tecnologias](#-tecnologias)
 - [Como executar](#-como-executar)
