@@ -1,2 +1,0 @@
-#progma once
-typedef struct{};
