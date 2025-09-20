@@ -4,15 +4,31 @@
 //###########
 #include <stdio.h>
 #include <stdlib.h>
-#include "Prototipos.h"
+#include <locale.h>
+#include <time.h>
     
-    int main(void){
 
-        int Escolhar;
+    typedef struct {
+    
+        char* perguntas[50];
+                
+    };
+    
 
-        printf("Escolhar Nivel: ");
-        scanf("%d",&Escolhar);
+int main(void){
 
+        srand(time(NULL));
+
+        char* Vetor[3] = {"Com grandes poderes, vem grandes responsabilidades","Seila","Blabla"};
+
+        char vetor[50] = {"Com grandes poderes"};
+
+        printf("\n%s",Vetor[0 + rand() % 3]);
+        printf("\n%c",vetor[0 + rand() % 7]);
+
+            return 0;
+    }
+/*
         switch(Escolhar){
             case 1: 
                 calculo_vida(Escolhar);
@@ -30,3 +46,4 @@
 
         return 0;
     }
+        */
