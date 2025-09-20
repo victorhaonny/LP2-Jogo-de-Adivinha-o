@@ -1,6 +1,7 @@
 //############
-//Data:18/09/2025
-//Aluno:Victor 
+//Data:20/09/2025
+//Aluno:Victor e Reginaldo
+//ideias Aleatorias 
 //###########
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,7 +12,7 @@
     typedef struct {
     
         char* perguntas[50] ={{"Com grandes ponderes","Homem aranha"}};
-                  
+
 
     }Perfil;
     
