@@ -10,12 +10,17 @@
 
     typedef struct {
     
-        char* perguntas[50];
-                
-    };
+        char* perguntas[50] ={{"Com grandes ponderes","Homem aranha"}};
+                  
+
+    }Perfil;
     
 
 int main(void){
+
+        int respostas[];
+
+        Perfil Filme[2];
 
         srand(time(NULL));
 
