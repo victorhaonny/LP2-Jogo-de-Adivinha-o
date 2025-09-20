@@ -4,7 +4,8 @@
 //###########
 #include <stdio.h>
 #include <stdlib.h>
-//O main vai se a base, ele vai utilizar ou um if else ou um switch case para controla o menu
+#include "Prototipos.h"
+    
     int main(void){
 
         int Escolhar;
@@ -13,12 +14,14 @@
         scanf("%d",&Escolhar);
 
         switch(Escolhar){
-            case 1: //4
+            case 1: 
                 calculo_vida(Escolhar);
             break;
-            case 2: //2
+            case 2: 
+                calculo_vida(Escolhar);
             break;
             case 3: //1
+                calculo_vida(Escolhar);
             break;
             default:
             printf("Esss Nivel não existe");
@@ -26,11 +29,4 @@
         }
 
         return 0;
-    }
-
-    typedef struct{
-
-        char perguntas[50];
-        
-
     }

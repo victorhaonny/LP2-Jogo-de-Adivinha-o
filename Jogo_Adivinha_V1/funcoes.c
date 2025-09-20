@@ -1,7 +1,10 @@
 #include <stdio.h>
+#include "Prototipos.h"
 
-    int calculo_vida(int a){
 
-        int* Ponteiro[5];
+    void calculo_vida(int a){
+        
+        a =  a * 2;
 
+        printf("%d",a);
     }
