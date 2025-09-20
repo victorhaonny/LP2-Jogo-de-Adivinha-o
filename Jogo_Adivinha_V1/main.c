@@ -13,11 +13,12 @@
         scanf("%d",&Escolhar);
 
         switch(Escolhar){
-            case 1:
+            case 1: //4
+                calculo_vida(Escolhar);
             break;
-            case 2:
+            case 2: //2
             break;
-            case 3:
+            case 3: //1
             break;
             default:
             printf("Esss Nivel não existe");
@@ -25,4 +26,11 @@
         }
 
         return 0;
+    }
+
+    typedef struct{
+
+        char perguntas[50];
+        
+
     }
