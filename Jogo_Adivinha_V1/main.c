@@ -2,7 +2,7 @@
 //Data:20/09/2025
 //Aluno:Victor e Reginaldo
 //ideias Aleatorias 
-//###########
+//#######################################
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
