@@ -9,11 +9,26 @@
 #include <time.h>
     
 
-    typedef struct {
-    
+typedef struct
+{
+    char questoes[100];
+    char opc[3][50];
+    char respostas;
+} Quest;
 
+void dificuldade(char a, int* b){
 
-    }P;
+    if(a != 'f' && a != 'm' && a != 'd'){
+        printf("Dificuldade inserida errada, definindo dificuldade como ""normal");
+            *b = 3;
+    }
+    if (a == 'f')
+        *b = 5;
+        else if(a == 'm')
+            *b = 3;
+             else if(a == 'd')
+                *b = 1;
+}
 
 int main(void){
 
