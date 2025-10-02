@@ -11,7 +11,7 @@
 
 typedef struct
 {
-    char questoes[100];
+    char* questoes[100];
     char opc[3][50];
     char respostas;
 } Quest;
@@ -32,9 +32,20 @@ void dificuldade(char a, int* b){
 
 int main(void){
 
+        setlocale(LC_ALL, "pt_BR.UTF-8");
+    
         srand(time(NULL));
+        char a;
+        int vida;
+        int* ptr_v = &vida;
 
-        char* Vetor[3] = {"Com grandes poderes, vem grandes responsabilidades","Seila","Blabla"};
+        printf("Escolha a dificuldade: (f para fácil)\n (m para medio)\n (d para difícil)\n");
+            scanf("%c", &a);
+                dificuldade(a, ptr_v);
+
+        return 0;
+    }
+       /* char* Vetor[3] = {"Com grandes poderes, vem grandes responsabilidades","Seila","Blabla"};
 
         char vetor[50] = {"Com grandes poderes"};
 
@@ -43,19 +54,21 @@ int main(void){
 
             return 0;
     }
-/*
-        switch(Escolhar){
-            case 1: 
-                calculo_vida(Escolhar);
+
+        switch(*b){
+            case 'f': 
+                *b = 5;
             break;
-            case 2: 
-                calculo_vida(Escolhar);
+            case 'n':
+                *b = 3;
             break;
-            case 3: //1
-                calculo_vida(Escolhar);
+            case 'd':
+                *b = 1;
+                
             break;
             default:
-            printf("Esss Nivel não existe");
+            printf("Esss Nivel não existe... \n Definindo como Normal");
+                *b = 3;
             return main();
         }
 
