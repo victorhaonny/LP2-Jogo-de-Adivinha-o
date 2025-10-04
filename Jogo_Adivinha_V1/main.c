@@ -1,20 +1,20 @@
 //############
 //Data:20/09/2025
-//Aluno:Victor e Reginaldo
-//ideias Aleatorias 
+//Aluno:Victor e Reginaldo 
 //#######################################
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
 #include <time.h>
-    
+#include "Prototipos.h"    
 
 typedef struct
 {
     char* questoes[100];
     char opc[3][50];
     char respostas;
-} Quest;
+
+} Perguntas;
 
 void dificuldade(char a, int* b){
 
@@ -33,45 +33,49 @@ void dificuldade(char a, int* b){
 int main(void){
 
         setlocale(LC_ALL, "pt_BR.UTF-8");
-    
         srand(time(NULL));
-        char a;
+        
+        char Letra, Categoria;
+        
         int vida;
+
         int* ptr_v = &vida;
 
-        printf("Escolha a dificuldade: (f para fácil)\n (m para medio)\n (d para difícil)\n");
-            scanf("%c", &a);
-                dificuldade(a, ptr_v);
+        printf("Escolha Categoria: \nFilmes(F) \nSeries(S) \nAleatorio(A)");
+        scanf("%c",Categoria);
+
+        switch(Categoria){
+            case 'F': 
+            break;
+
+            case 'S':
+            break;
+
+            case 'A': 
+            break;
+
+            default:
+        }
+
+
+        printf("Escolha a dificuldade: fácil(f)\n medio(m)\n difícil(d)\n");
+        scanf("%c", &Letra);
+
+        dificuldade(Letra, ptr_v);
+
 
         return 0;
     }
-       /* char* Vetor[3] = {"Com grandes poderes, vem grandes responsabilidades","Seila","Blabla"};
+
+
+        char* Vetor[3] = {"Com grandes poderes, vem grandes responsabilidades","Seila","Blabla"};
 
         char vetor[50] = {"Com grandes poderes"};
-
+/*
         printf("\n%s",Vetor[0 + rand() % 3]);
         printf("\n%c",vetor[0 + rand() % 7]);
 
             return 0;
     }
+*/
 
-        switch(*b){
-            case 'f': 
-                *b = 5;
-            break;
-            case 'n':
-                *b = 3;
-            break;
-            case 'd':
-                *b = 1;
-                
-            break;
-            default:
-            printf("Esss Nivel não existe... \n Definindo como Normal");
-                *b = 3;
-            return main();
-        }
-
-        return 0;
-    }
-        */
