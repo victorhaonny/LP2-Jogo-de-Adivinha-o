@@ -36,16 +36,21 @@ int main(void){
         srand(time(NULL));
         
         char Letra, Categoria;
-        
+
         int vida;
 
         int* ptr_v = &vida;
 
+        printf("Escolha a dificuldade: fácil(f)\n medio(m)\n difícil(d)\n");
+        scanf("%c", &Letra);
+        dificuldade(Letra, ptr_v);
+
         printf("Escolha Categoria: \nFilmes(F) \nSeries(S) \nAleatorio(A)");
-        scanf("%c",Categoria);
+        scanf("%c",&Categoria);
 
         switch(Categoria){
             case 'F': 
+            Perguntas_Categorias(vida, Categoria);
             break;
 
             case 'S':
@@ -56,13 +61,6 @@ int main(void){
 
             default:
         }
-
-
-        printf("Escolha a dificuldade: fácil(f)\n medio(m)\n difícil(d)\n");
-        scanf("%c", &Letra);
-
-        dificuldade(Letra, ptr_v);
-
 
         return 0;
     }

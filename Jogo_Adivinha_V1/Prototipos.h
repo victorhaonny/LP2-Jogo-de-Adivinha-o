@@ -8,7 +8,6 @@ typedef struct
 
 } Perguntas;
 
-//3 Struct de 3 Categorias diferentes.
 
 void dificuldade(char a, int* b);
-void Perguntas(int* b);
+void Perguntas_Categorias(int* b);

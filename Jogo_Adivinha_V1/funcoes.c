@@ -15,4 +15,4 @@ void dificuldade(char a, int* b){
                 *b = 1;
 }
 
-void Perguntas(int* b){}
+Perguntas Perguntas_Categorias(int a, char b);
