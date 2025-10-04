@@ -8,28 +8,6 @@
 #include <time.h>
 #include "Prototipos.h"    
 
-typedef struct
-{
-    char* questoes[100];
-    char opc[3][50];
-    char respostas;
-
-} Perguntas;
-
-void dificuldade(char a, int* b){
-
-    if(a != 'f' && a != 'm' && a != 'd'){
-        printf("Dificuldade inserida errada, definindo dificuldade como ""normal");
-            *b = 3;
-    }
-    if (a == 'f')
-        *b = 5;
-        else if(a == 'm')
-            *b = 3;
-             else if(a == 'd')
-                *b = 1;
-}
-
 int main(void){
 
         setlocale(LC_ALL, "pt_BR.UTF-8");
@@ -46,7 +24,7 @@ int main(void){
         dificuldade(Letra, ptr_v);
 
         printf("Escolha Categoria: \nFilmes(F) \nSeries(S) \nAleatorio(A)");
-        scanf("%c",&Categoria);
+        scanf(" %c",&Categoria);
 
         switch(Categoria){
             case 'F': 
