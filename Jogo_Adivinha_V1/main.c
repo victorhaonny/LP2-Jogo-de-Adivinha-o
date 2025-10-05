@@ -18,13 +18,9 @@
 int main(void)
 {
 
-    setlocale(LC_ALL, "pt_BR.UTF-8");
-    srand(time(NULL));
-
     Perguntas Questoes;
     Perguntas *PonteiroQ = &Questoes;
 
-    setlocale(LC_ALL, "pt_BR.UTF-8");
     srand(time(NULL));
 
     char Letra, Categoria, Start;
@@ -33,20 +29,13 @@ int main(void)
 
     int *ptr_v = &vida;
 
-    printf("Escolha a dificuldade: fácil(f)\n medio(m)\n difícil(d)\n");
+    printf("Escolha a dificuldade:\nfacil(f)\nmedio(m)\ndificil(d)\n");
     scanf("%c", &Letra);
     dificuldade(Letra, ptr_v);
 
     printf("Escolha Categoria: \nFilmes(F) \nSeries(S) \nAleatorio(A)");
     scanf("%c", &Categoria);
     Selecionando_Categorias(Categoria, PonteiroQ);
-
-    printf("Está pronto para comeaça ?");
-    scanf("%c", &Start);
-    if (Start = 'S')
-    {
-        Mostrando_Perguntas_Tela(vida, Acertos, Questoes);
-    }
 
     return 0;
 }

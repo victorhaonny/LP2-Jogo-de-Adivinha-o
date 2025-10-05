@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+// Para seleciona dificuldade, em realção a vida
 void dificuldade(char a, int *b)
 {
 
@@ -10,8 +11,6 @@ void dificuldade(char a, int *b)
         printf("\nDificuldade inserida errada, definindo dificuldade como "
                "normal");
         *b = 2;
-        sleep(5000);
-        system("clear");
     }
 
     if (a == 'f')
@@ -21,37 +20,30 @@ void dificuldade(char a, int *b)
     else if (a == 'd')
         *b = 1;
 }
-
+// Seleciona Categoria de Perguntas
 void Selecionando_Categorias(char a, Perguntas *p)
 {
-
     if (a == 'A' || a == 'F' || a == 'S')
         Perguntas_Categorias(a, p);
-    else
-    {
-        printf("\nErro na escolhar, Filmes sera indicado como padrão");
-        sleep(5000);
-        system("clear");
-        Perguntas_Categorias('F', p);
-    }
 }
 
-Perguntas Perguntas_Categorias(char a, Perguntas *b)
+// Função para passa as perguntas Certas na Struct do jeito que o usuario pediu.
+void Perguntas_Categorias(char a, Perguntas *b)
 {
     if (a == 'f')
     {
-        *b = (Perguntas){"Com Grandes poderes vem grandes responsabilidades: ", {"A) Homem de Ferro", "B) Homem-Aranha", "C) Homem invisivel"}, 'B'};
-        return *b;
+        b->questoes[0] = "Com grandes poderes";
     }
 }
 
-void Mostrando_Perguntas_Tela(int a, int b, Perguntas *d)
+// Função para mostra na tela as perguntas
+void Mostrando_Perguntas_Tela(int a, int b, Perguntas d)
 {
 
-    printf("Pergunta: %s", d->questoes);
+    printf("Pergunta: %s", d.questoes);
 
     for (int i = 0; i <= 3; i++)
     {
-        printf("\n%s", d->opc[i]);
+        printf("\n%s", d.opc[i]);
     }
 }
