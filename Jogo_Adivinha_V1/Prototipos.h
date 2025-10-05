@@ -2,12 +2,13 @@
 
 typedef struct
 {
-    char* questoes[100];
+    char *questoes[100];
     char opc[3][50];
     char respostas;
 
 } Perguntas;
 
-
-void dificuldade(char a, int* b);
-Perguntas Perguntas_Categorias(int a, char b, Perguntas *d);
+void dificuldade(char a, int *b);
+Perguntas Perguntas_Categorias(int v, char a, Perguntas *b);
+void Selecionando_Categorias(char a, Perguntas *b);
+void Mostrando_Perguntas_Tela(int a, int b, Perguntas d);

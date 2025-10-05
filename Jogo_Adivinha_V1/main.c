@@ -1,72 +1,64 @@
-//############
-//Data:20/09/2025
-//Aluno:Victor e Reginaldo 
-//#######################################
+// ############
+// Aluno:Victor e Reginaldo
+// #######################################
 #include <stdio.h>
 
 #include <stdlib.h>
 
-#include <locale.h>//Set local da linguagem
+#include <locale.h> //Set local da linguagem
 
 #include <time.h> //Manipulação de Semente
 
-#include <unistd.h>//Manipulação de Tempo no linux
+#include <unistd.h> //Manipulação de Tempo no linux
 
-#include <windows.h>//Manipulação de Tempo no Windows
+#include <windows.h> //Manipulação de Tempo no Windows
 
-#include "Prototipos.h"    
- 
-int main(void){
+#include "Prototipos.h"
 
-        Perguntas Questoes;
-        Perguntas* PonteiroQ = &Questoes;
+int main(void)
+{
 
-        setlocale(LC_ALL, "pt_BR.UTF-8");
-        srand(time(NULL));
-        
-        char Letra, Categoria;
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+    srand(time(NULL));
 
-        int vida, Acertos = 0;
+    Perguntas Questoes;
+    Perguntas *PonteiroQ = &Questoes;
 
-        int* ptr_v = &vida;
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+    srand(time(NULL));
 
-        printf("Escolha a dificuldade: fácil(f)\n medio(m)\n difícil(d)\n");
-        scanf("%c", &Letra);
-        dificuldade(Letra, ptr_v);
+    char Letra, Categoria, Start;
 
-        printf("Escolha Categoria: \nFilmes(F) \nSeries(S) \nAleatorio(A)");
-        scanf("%c",&Categoria);
+    int vida, Acertos = 0;
 
-        switch(Categoria){
-            case 'F': 
-            Perguntas_Categorias(vida, Categoria, PonteiroQ);
-            break;
-            case 'S':
-            Perguntas_Categorias(vida, Categoria, PonteiroQ);
-            break;
-            case 'A':
-            Perguntas_Categorias(vida, Categoria, PonteiroQ); 
-            break;
-            default:
-            printf("Opção não existe, selecionaremos por padrão: Filmes");
-            sleep(5000);
-            system("clear");
-            Perguntas_Categorias(vida, 'F' , PonteiroQ);
+    int *ptr_v = &vida;
 
-        }
+    printf("Escolha a dificuldade: fácil(f)\n medio(m)\n difícil(d)\n");
+    scanf("%c", &Letra);
+    dificuldade(Letra, ptr_v);
 
-        return 0;
+    printf("Escolha Categoria: \nFilmes(F) \nSeries(S) \nAleatorio(A)");
+    scanf("%c", &Categoria);
+    Selecionando_Categorias(Categoria, PonteiroQ);
+
+    printf("Está pronto para comeaça ?");
+    scanf("%c", &Start);
+    if (Start = 'S')
+    {
+        Mostrando_Perguntas_Tela(vida, Acertos, Questoes);
     }
 
+    return 0;
+}
 
+/*
         char* Vetor[3] = {"Com grandes poderes, vem grandes responsabilidades","Seila","Blabla"};
 
         char vetor[50] = {"Com grandes poderes"};
-/*
+
         printf("\n%s",Vetor[0 + rand() % 3]);
         printf("\n%c",vetor[0 + rand() % 7]);
 
             return 0;
     }
 */
-
