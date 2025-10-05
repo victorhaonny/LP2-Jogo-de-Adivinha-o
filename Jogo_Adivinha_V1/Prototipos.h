@@ -10,4 +10,4 @@ typedef struct
 
 
 void dificuldade(char a, int* b);
-void Perguntas_Categorias(int a, char b);
+Perguntas Perguntas_Categorias(int a, char b, Perguntas *d);
