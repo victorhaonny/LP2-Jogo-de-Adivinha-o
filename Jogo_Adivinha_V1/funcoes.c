@@ -25,6 +25,8 @@ void Selecionando_Categorias(char a, Perguntas *p)
 {
     if (a == 'A' || a == 'F' || a == 'S')
         Perguntas_Categorias(a, p);
+    else
+        Perguntas_Categorias('F', p);
 }
 
 // Função para passa as perguntas Certas na Struct do jeito que o usuario pediu.
