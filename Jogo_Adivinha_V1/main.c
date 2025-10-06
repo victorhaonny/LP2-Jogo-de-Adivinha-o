@@ -37,6 +37,10 @@ int main(void)
     scanf("%c", &Categoria);
     Selecionando_Categorias(Categoria, PonteiroQ);
 
+    printf("\n#####JOGO#####");
+
+    Mostrando_Perguntas_Tela(vida, Acertos, Questoes);
+
     return 0;
 }
 

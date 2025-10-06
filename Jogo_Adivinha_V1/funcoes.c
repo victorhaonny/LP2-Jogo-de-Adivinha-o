@@ -27,20 +27,37 @@ void Selecionando_Categorias(char a, Perguntas *p)
     if (a == 'A' || a == 'F' || a == 'S')
         Perguntas_Categorias(a, p);
     else
+    {
+        printf("O Padrão vai ser filmes");
         Perguntas_Categorias('F', p);
+    }
 }
 
 // Função para passa as perguntas Certas na Struct do jeito que o usuario pediu.
 
-void Perguntas_Categorias(char a, Perguntas *b)
+Perguntas Perguntas_Categorias(char a, Perguntas *b)
 {
-    if (a == 'f')
+    if (a == 'F')
     {
-        b->questoes[0] = "Com grandes poderes vem grandes responsabilidades";
-        b->opc[0][50] = "A) Homem-Aranha";
-        b->opc[1][50] = "B) Batman";
-        b->opc[2][50] = "C) Superman";
-        b->respostas = 'A';
+        Perguntas Filmes[3] = {
+            {"Frase 1", {"A1", "B1", "C1"}, 'A'},
+            {"Frase 2", {"A2", "B2", "C2"}, 'B'},
+            {"Frase 3", {"A3", "B3", "C3"}, 'C'}};
+    }
+    else if (a == 'S')
+    {
+
+        Perguntas Series[3] = {
+            {"Frase 1", {"A1", "B1", "C1"}, 'A'},
+            {"Frase 2", {"A2", "B2", "C2"}, 'B'},
+            {"Frase 3", {"A3", "B3", "C3"}, 'C'}};
+    }
+    else if (a == 'A')
+    {
+        Perguntas Aleatorio[3] = {
+            {"Frase 1", {"A1", "B1", "C1"}, 'A'},
+            {"Frase 2", {"A2", "B2", "C2"}, 'B'},
+            {"Frase 3", {"A3", "B3", "C3"}, 'C'}};
     }
 }
 
@@ -48,7 +65,7 @@ void Perguntas_Categorias(char a, Perguntas *b)
 
 void Mostrando_Perguntas_Tela(int a, int b, Perguntas d)
 {
-    char Reposta;
+    char Resposta;
 
     for (int i = 0; i < a; i++)
     {
@@ -57,9 +74,9 @@ void Mostrando_Perguntas_Tela(int a, int b, Perguntas d)
     }
 
     printf("\nResposta: ");
-    scanf("%c", Reposta);
+    scanf("%c", Resposta);
 
-    if (Reposta != d.respostas)
+    if (Resposta != d.respostas)
     {
         printf("\n Errado");
         a -= 1;
@@ -69,4 +86,13 @@ void Mostrando_Perguntas_Tela(int a, int b, Perguntas d)
         printf("\nCorreto");
         b++;
     }
+}
+
+void Ganhou_Perdeu(int vida, int acertos)
+{
+
+    if (vida == 0)
+        printf("GAME OVER");
+    else if (acertos = 4)
+        printf("VENCEU");
 }
