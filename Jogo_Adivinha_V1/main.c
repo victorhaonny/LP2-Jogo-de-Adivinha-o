@@ -22,7 +22,7 @@ int main(void)
 
     Perguntas *PonteiroQ = Questoes;
 
-    char Letra, Categoria, Start;
+    char Letra, Categoria;
 
     int vida, Acertos = 0;
 
