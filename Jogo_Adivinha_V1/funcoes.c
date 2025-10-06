@@ -40,24 +40,23 @@ Perguntas Perguntas_Categorias(char a, Perguntas *b)
     if (a == 'F')
     {
         Perguntas Filmes[3] = {
-            {"Frase 1", {"A1", "B1", "C1"}, 'A'},
-            {"Frase 2", {"A2", "B2", "C2"}, 'B'},
+            {"Frase 1", {"A", "A", "A"}, 'A'},
+            {"Frase 2", {"B", "B", "B"}, 'B'},
             {"Frase 3", {"A3", "B3", "C3"}, 'C'}};
     }
     else if (a == 'S')
     {
-
         Perguntas Series[3] = {
-            {"Frase 1", {"A1", "B1", "C1"}, 'A'},
-            {"Frase 2", {"A2", "B2", "C2"}, 'B'},
-            {"Frase 3", {"A3", "B3", "C3"}, 'C'}};
+            {"Frase 1", {"A", "B", "C"}, 'A'},
+            {"Frase 2", {"A", "B", "C"}, 'B'},
+            {"Frase 3", {"A", "B", "C"}, 'C'}};
     }
     else if (a == 'A')
     {
         Perguntas Aleatorio[3] = {
-            {"Frase 1", {"A1", "B1", "C1"}, 'A'},
-            {"Frase 2", {"A2", "B2", "C2"}, 'B'},
-            {"Frase 3", {"A3", "B3", "C3"}, 'C'}};
+            {"Frase 1", {"A", "B", "C"}, 'A'},
+            {"Frase 2", {"A", "B", "C"}, 'B'},
+            {"Frase 3", {"A", "B", "C"}, 'C'}};
     }
 }
 
@@ -94,5 +93,5 @@ void Ganhou_Perdeu(int vida, int acertos)
     if (vida == 0)
         printf("GAME OVER");
     else if (acertos = 4)
-        printf("VENCEU");
+        printf("YOU WIN");
 }

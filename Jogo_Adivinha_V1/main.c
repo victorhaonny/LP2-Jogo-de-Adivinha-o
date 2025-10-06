@@ -19,7 +19,7 @@ int main(void)
 {
 
     Perguntas Questoes;
-    Perguntas *PonteiroQ = &Questoes;
+    Perguntas *PonteiroQ[3] = &Questoes;
 
     srand(time(NULL));
 
