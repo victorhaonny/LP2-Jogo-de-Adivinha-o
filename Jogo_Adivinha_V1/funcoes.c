@@ -22,14 +22,14 @@ void dificuldade(char a, int *b)
 }
 // Seleciona Categoria de Perguntas
 
-void Selecionando_Categorias(char a, Perguntas *p)
+void Selecionando_Categorias(char a, Perguntas *b)
 {
     if (a == 'A' || a == 'F' || a == 'S')
-        *p = Perguntas_Categorias(a);
+        *b = Perguntas_Categorias(a);
     else
     {
         printf("O Padrão vai ser filmes");
-        *p = Perguntas_Categorias('F');
+        *b = Perguntas_Categorias('F');
     }
 }
 
@@ -98,6 +98,6 @@ void Ganhou_Perdeu(int vida, int acertos)
 
     if (vida == 0)
         printf("GAME OVER");
-    else if (acertos = 4)
+    else if (acertos = vida)
         printf("YOU WIN");
 }
