@@ -42,7 +42,7 @@ Perguntas Perguntas_Categorias(char a, Perguntas *b)
         Perguntas Filmes[3] = {
             {"Frase 1", {"A", "A", "A"}, 'A'},
             {"Frase 2", {"B", "B", "B"}, 'B'},
-            {"Frase 3", {"A3", "B3", "C3"}, 'C'}};
+            {"Frase 3", {"C", "C", "C"}, 'C'}};
     }
     else if (a == 'S')
     {
