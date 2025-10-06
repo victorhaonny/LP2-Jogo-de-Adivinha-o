@@ -10,7 +10,7 @@ typedef struct
 
 void dificuldade(char a, int *b);
 
-Perguntas Perguntas_Categorias(char a);
+Perguntas *Perguntas_Categorias(char a);
 
 void Selecionando_Categorias(char a, Perguntas *b);
 
