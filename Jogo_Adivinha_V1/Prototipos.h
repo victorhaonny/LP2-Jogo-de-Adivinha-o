@@ -2,8 +2,8 @@
 
 typedef struct
 {
-    char *questoes[100];
-    char opc[50][50];
+    char questoes[100];
+    char opc[3][50];
     char respostas;
 
 } Perguntas;

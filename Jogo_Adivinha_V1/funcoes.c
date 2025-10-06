@@ -75,7 +75,7 @@ void Mostrando_Perguntas_Tela(int a, int b, Perguntas d[])
 
         for (int j = 0; j < a; j++)
         {
-            printf("\n%s", d[i].opc);
+            printf("\n%s", d[j].opc);
         }
         printf("\nResposta: ");
         scanf("%c", d[i].respostas);

@@ -30,12 +30,14 @@ int main(void)
 
     printf("Escolha a dificuldade:\nfacil(f)\nmedio(m)\ndificil(d)\n");
     scanf("%c", &Letra);
+    getchar();
     dificuldade(Letra, ptr_v);
 
     printf("Escolha Categoria: \nFilmes(F) \nSeries(S) \nAleatorio(A)");
     scanf("%c", &Categoria);
+    getchar();
     Selecionando_Categorias(Categoria, PonteiroQ);
-
+    getchar();
     printf("\n#####JOGO#####");
 
     Mostrando_Perguntas_Tela(vida, Acertos, Questoes);
