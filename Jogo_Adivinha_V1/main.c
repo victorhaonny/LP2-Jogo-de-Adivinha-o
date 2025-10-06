@@ -18,10 +18,9 @@
 int main(void)
 {
 
-    Perguntas Questoes;
-    Perguntas *PonteiroQ[3] = &Questoes;
+    Perguntas Questoes[3];
 
-    srand(time(NULL));
+    Perguntas *PonteiroQ = Questoes;
 
     char Letra, Categoria, Start;
 
@@ -40,6 +39,8 @@ int main(void)
     printf("\n#####JOGO#####");
 
     Mostrando_Perguntas_Tela(vida, Acertos, Questoes);
+
+    Ganhou_Perdeu(vida, Acertos);
 
     return 0;
 }

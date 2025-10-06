@@ -25,17 +25,17 @@ void dificuldade(char a, int *b)
 void Selecionando_Categorias(char a, Perguntas *p)
 {
     if (a == 'A' || a == 'F' || a == 'S')
-        Perguntas_Categorias(a, p);
+        *p = Perguntas_Categorias(a);
     else
     {
         printf("O Padrão vai ser filmes");
-        Perguntas_Categorias('F', p);
+        *p = Perguntas_Categorias('F');
     }
 }
 
 // Função para passa as perguntas Certas na Struct do jeito que o usuario pediu.
 
-Perguntas Perguntas_Categorias(char a, Perguntas *b)
+Perguntas Perguntas_Categorias(char a)
 {
     if (a == 'F')
     {
@@ -43,6 +43,7 @@ Perguntas Perguntas_Categorias(char a, Perguntas *b)
             {"Frase 1", {"A", "A", "A"}, 'A'},
             {"Frase 2", {"B", "B", "B"}, 'B'},
             {"Frase 3", {"C", "C", "C"}, 'C'}};
+        return Filmes[3];
     }
     else if (a == 'S')
     {
@@ -50,6 +51,7 @@ Perguntas Perguntas_Categorias(char a, Perguntas *b)
             {"Frase 1", {"A", "B", "C"}, 'A'},
             {"Frase 2", {"A", "B", "C"}, 'B'},
             {"Frase 3", {"A", "B", "C"}, 'C'}};
+        return Series[3];
     }
     else if (a == 'A')
     {
@@ -57,33 +59,37 @@ Perguntas Perguntas_Categorias(char a, Perguntas *b)
             {"Frase 1", {"A", "B", "C"}, 'A'},
             {"Frase 2", {"A", "B", "C"}, 'B'},
             {"Frase 3", {"A", "B", "C"}, 'C'}};
+        return Aleatorio[3];
     }
 }
 
 // Função para mostra na tela as perguntas
 
-void Mostrando_Perguntas_Tela(int a, int b, Perguntas d)
+void Mostrando_Perguntas_Tela(int a, int b, Perguntas d[])
 {
     char Resposta;
 
     for (int i = 0; i < a; i++)
     {
-        printf("Pergunta: %s", d.questoes[i]);
-        printf("\n%s", d.opc[i]);
-    }
+        printf("Pergunta: %s", d[i].questoes);
 
-    printf("\nResposta: ");
-    scanf("%c", Resposta);
+        for (int j = 0; j < a; j++)
+        {
+            printf("\n%s", d[i].opc);
+        }
+        printf("\nResposta: ");
+        scanf("%c", d[i].respostas);
 
-    if (Resposta != d.respostas)
-    {
-        printf("\n Errado");
-        a -= 1;
-    }
-    else
-    {
-        printf("\nCorreto");
-        b++;
+        if (Resposta != d[i].respostas)
+        {
+            printf("\n Errado");
+            a -= 1;
+        }
+        else
+        {
+            printf("\nCorreto");
+            b++;
+        }
     }
 }
 

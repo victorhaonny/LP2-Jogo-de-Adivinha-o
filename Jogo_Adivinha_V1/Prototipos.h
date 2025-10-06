@@ -9,7 +9,11 @@ typedef struct
 } Perguntas;
 
 void dificuldade(char a, int *b);
-Perguntas Perguntas_Categorias(char a, Perguntas *b);
+
+Perguntas Perguntas_Categorias(char a);
+
 void Selecionando_Categorias(char a, Perguntas *b);
-void Mostrando_Perguntas_Tela(int a, int b, Perguntas d);
+
+void Mostrando_Perguntas_Tela(int a, int b, Perguntas d[]);
+
 void Ganhou_Perdeu(int vida, int acertos);
