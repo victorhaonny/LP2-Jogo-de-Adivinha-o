@@ -9,10 +9,6 @@
 
 #include <time.h> //Manipulação de Semente
 
-#include <unistd.h> //Manipulação de Tempo no linux
-
-#include <windows.h> //Manipulação de Tempo no Windows
-
 #include "Prototipos.h"
 
 int main(void)
@@ -35,6 +31,7 @@ int main(void)
 
     printf("Escolha Categoria: \nFilmes(F) \nSeries(S) \nAleatorio(A)");
     scanf("%c", &Categoria);
+
     getchar();
 
     escolhendo_categoria(Categoria, PonteiroQ);
@@ -43,9 +40,16 @@ int main(void)
 
     printf("\n#####JOGO#####");
 
-    for (int i = 0; i < 3; i++)
+    srand(time(NULL));
+
+    int Repeticao = 3;
+    int Numero_Da_Questao = 0;
+
+    while (Repeticao)
     {
-        printf("\nPergunta %d: %s\n%s\n%s\n%s", i + 1, Questoes[i].questoes, Questoes[i].opc[0], Questoes[i].opc[1], Questoes[i].opc[2]);
+        int i = rand() % 3;
+
+        printf("\nPergunta %d: %s\n%s\n%s\n%s", Numero_Da_Questao + 1, Questoes[i].questoes, Questoes[i].opc[0], Questoes[i].opc[1], Questoes[i].opc[2]);
         printf("\nInsira sua resposta:");
         scanf(" %c", &resposta);
 
@@ -55,6 +59,8 @@ int main(void)
         }
         else
             printf("Voce errou :(\n");
+
+        Repeticao--;
     }
 
     Ganhou_Perdeu(vida, Acertos);

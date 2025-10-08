@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 // Para seleciona dificuldade, em realção a vida
 void dificuldade(char a, int *b)
 {
