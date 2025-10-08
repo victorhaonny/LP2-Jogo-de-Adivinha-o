@@ -15,7 +15,7 @@ void dificuldade(char a, int *b)
     }
 
     if (a == 'f')
-        *b = 4;
+        *b = 3;
     else if (a == 'm')
         *b = 2;
     else if (a == 'd')
@@ -136,11 +136,13 @@ void Mostrando_Perguntas_Tela(int a, int b, Perguntas d[])
 */
 void Ganhou_Perdeu(int vida, int acertos)
 {
-
     if (vida == 0)
         printf("GAME OVER");
-    else if (acertos == vida)
+    else if (acertos == 3)
         printf("YOU WIN");
+    else{
+        printf("A sua pontuacao maxima foi de: %d", acertos);
+    }
 }
 
 /*

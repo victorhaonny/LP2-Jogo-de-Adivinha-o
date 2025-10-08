@@ -43,24 +43,30 @@ int main(void)
     srand(time(NULL));
 
     int Repeticao = 3;
-    int Numero_Da_Questao = 0;
-
+    int v[3] = {0, 1, 2};
     while (Repeticao)
     {
-        int i = rand() % 3;
+        int i = rand() % Repeticao;
+        int x = v[i];
 
-        printf("\nPergunta %d: %s\n%s\n%s\n%s", Numero_Da_Questao + 1, Questoes[i].questoes, Questoes[i].opc[0], Questoes[i].opc[1], Questoes[i].opc[2]);
+        printf("\nPergunta: %s\n%s\n%s\n%s", Questoes[x].questoes, Questoes[x].opc[0], Questoes[x].opc[1], Questoes[x].opc[2]);
         printf("\nInsira sua resposta:");
         scanf(" %c", &resposta);
 
-        if (resposta == Questoes[i].respostas)
+        if (resposta == Questoes[x].respostas)
         {
             printf("Voce acertou!\n");
+            Acertos = Acertos + 1;
         }
         else
+        {
             printf("Voce errou :(\n");
-
+            vida--;
+        }
+        v[i] = v[Repeticao - 1];
         Repeticao--;
+        printf("Acertos: %d\n", Acertos);
+        printf("Vidas: %d\n", vida);
     }
 
     Ganhou_Perdeu(vida, Acertos);
