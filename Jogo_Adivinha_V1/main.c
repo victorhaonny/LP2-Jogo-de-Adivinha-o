@@ -22,7 +22,7 @@ int main(void)
 
     Perguntas *PonteiroQ = Questoes;
 
-    char Letra, Categoria;
+    char Letra, Categoria, resposta;
 
     int vida, Acertos = 0;
 
@@ -36,25 +36,28 @@ int main(void)
     printf("Escolha Categoria: \nFilmes(F) \nSeries(S) \nAleatorio(A)");
     scanf("%c", &Categoria);
     getchar();
-    Selecionando_Categorias(Categoria, PonteiroQ);
+
+    escolhendo_categoria(Categoria, PonteiroQ);
+
     getchar();
+
     printf("\n#####JOGO#####");
 
-    Mostrando_Perguntas_Tela(vida, Acertos, Questoes);
+    for (int i = 0; i < 3; i++)
+    {
+        printf("\nPergunta %d: %s\n%s\n%s\n%s", i + 1, Questoes[i].questoes, Questoes[i].opc[0], Questoes[i].opc[1], Questoes[i].opc[2]);
+        printf("\nInsira sua resposta:");
+        scanf(" %c", &resposta);
+
+        if (resposta == Questoes[i].respostas)
+        {
+            printf("Voce acertou!\n");
+        }
+        else
+            printf("Voce errou :(\n");
+    }
 
     Ganhou_Perdeu(vida, Acertos);
 
     return 0;
 }
-
-/*
-        char* Vetor[3] = {"Com grandes poderes, vem grandes responsabilidades","Seila","Blabla"};
-
-        char vetor[50] = {"Com grandes poderes"};
-
-        printf("\n%s",Vetor[0 + rand() % 3]);
-        printf("\n%c",vetor[0 + rand() % 7]);
-
-            return 0;
-    }
-*/

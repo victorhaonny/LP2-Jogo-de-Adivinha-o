@@ -12,7 +12,7 @@ void dificuldade(char a, int *b);
 
 Perguntas *Perguntas_Categorias(char a);
 
-void Selecionando_Categorias(char a, Perguntas *b);
+void escolhendo_categoria(char a, Perguntas* b);
 
 void Mostrando_Perguntas_Tela(int a, int b, Perguntas d[]);
 
