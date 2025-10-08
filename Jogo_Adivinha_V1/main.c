@@ -10,8 +10,7 @@
 #include <time.h> //Manipulação de Semente
 
 #include "Prototipos.h"
-//
-// ddd
+
 int main(void)
 {
 
