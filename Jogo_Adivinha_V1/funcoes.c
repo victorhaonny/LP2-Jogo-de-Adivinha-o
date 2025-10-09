@@ -38,7 +38,7 @@ void escolhendo_categoria(char a, Perguntas *b)
     const char respostaF[3] = {'A', 'B', 'C'};
 
     const char *frasesSeries[3] = {
-        "Eu não estou em perigo, eu sou o perigo",
+        "Eu nao estou em perigo, eu sou o perigo",
         "Voce falhou com essa cidade",
         "Eu faco minha propria sorte"};
 

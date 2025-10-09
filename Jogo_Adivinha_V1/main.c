@@ -62,7 +62,7 @@ int main(void)
         }
         else
         {
-            printf("Voce errou :(\n");
+            printf("Voce errou :\n");
             vida--;
         }
         v[i] = v[Repeticao - 1];
