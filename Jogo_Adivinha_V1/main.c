@@ -22,7 +22,7 @@ int main(void)
 
     int *ptr_v = &vida;
 
-    printf("Escolha a dificuldade:\nFacil(F)\nMedio(M)\nDificil(D)\n");
+    printf("\nEscolha a dificuldade:\nFacil(F)\nMedio(M)\nDificil(D)\n");
     scanf("%c", &Letra);
     getchar();
     dificuldade(Letra, ptr_v);
@@ -51,18 +51,18 @@ int main(void)
         printf("\nInsira sua resposta:");
         scanf(" %c", &resposta);
 
-        if (resposta == 'a' || resposta == 'b' || resposta == 'c')
+        resposta = converso_de_letras(resposta);
 
-            if (resposta == Questoes[x].respostas)
-            {
-                printf("Voce acertou!\n");
-                Acertos = Acertos + 1;
-            }
-            else
-            {
-                printf("Voce errou :(\n");
-                vida--;
-            }
+        if (resposta == Questoes[x].respostas)
+        {
+            printf("Voce acertou!\n");
+            Acertos = Acertos + 1;
+        }
+        else
+        {
+            printf("Voce errou :(\n");
+            vida--;
+        }
         v[i] = v[Repeticao - 1];
         Repeticao--;
         printf("Acertos: %d\n", Acertos);

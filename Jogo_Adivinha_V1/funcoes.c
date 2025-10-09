@@ -3,25 +3,12 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
-// Para seleciona dificuldade, em realção a vida
-
-char converso_de_letras(char a)
-{
-
-    if (a >= 'a' && a <= 'z')
-    {
-        return a - 32;
-    }
-    else
-        return a;
-}
-
 void dificuldade(char a, int *b)
 {
 
     converso_de_letras(a);
 
-    if (a == 'F' && a == 'M' && a == 'D')
+    if (a != 'F' && a != 'M' && a != 'D')
     {
         printf("\nDificuldade inserida errada, definindo dificuldade como "
                "normal");
@@ -123,4 +110,15 @@ void Ganhou_Perdeu(int vida, int acertos)
     {
         printf("A sua pontuacao maxima foi de: %d", acertos);
     }
+}
+
+char converso_de_letras(char a)
+{
+
+    if (a >= 'a' && a <= 'z')
+    {
+        return a - 32;
+    }
+    else
+        return a;
 }
