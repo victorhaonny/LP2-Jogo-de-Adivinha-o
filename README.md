@@ -1,6 +1,6 @@
 # 🎲 LP2 - Jogo de Adivinhação
 
-jogo de adivinhação (CLI) desenvolvido em **Linguagem de Programação c (LP2)** **|** **Filmes** **Series** **Animes**   
+jogo de adivinhação (CLI) desenvolvido em **Linguagem de Programação c (LP2)** **|** **Filmes** **Series**
 
 ---
 
