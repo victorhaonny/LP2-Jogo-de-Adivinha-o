@@ -1,6 +1,8 @@
-// ############
-// Aluno:Victor e Reginaldo
-// #######################################
+// ########################################
+//  CIC UESC - LP2
+//  Aluno: Victor e Reginaldo
+//  Data: 09/10/2025
+// ########################################
 #include <stdio.h>
 
 #include <stdlib.h>
