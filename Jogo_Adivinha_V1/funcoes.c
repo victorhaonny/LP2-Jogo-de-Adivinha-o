@@ -4,70 +4,78 @@
 #include <string.h>
 #include <time.h>
 // Para seleciona dificuldade, em realção a vida
+
+char converso_de_letras(char a)
+{
+
+    if (a >= 'a' && a <= 'z')
+    {
+        return a - 32;
+    }
+    else
+        return a;
+}
+
 void dificuldade(char a, int *b)
 {
 
-    if (a != 'f' && a != 'm' && a != 'd')
+    converso_de_letras(a);
+
+    if (a == 'F' && a == 'M' && a == 'D')
     {
         printf("\nDificuldade inserida errada, definindo dificuldade como "
                "normal");
         *b = 2;
     }
 
-    if (a == 'f')
+    if (a == 'F')
         *b = 3;
-    else if (a == 'm')
+    else if (a == 'M')
         *b = 2;
-    else if (a == 'd')
+    else if (a == 'D')
         *b = 1;
 }
-
-// Função para passa as perguntas Certas na Struct do jeito que o usuario pediu.
 
 void escolhendo_categoria(char a, Perguntas *b)
 {
 
-    // Vetor contendo as frases, o ponteiro é para cada frase ser um espaço, ao invés de cada letra ser um espaço
     const char *frasesFilmes[3] = {
-        "Testando 1F",
-        "Testando 2F",
-        "Testando 3F"};
-    // Matriz para as respostas, a primeira caixa é para as questoes 1,2 e 3, e as segundas para cada alternativa
+        "Vou fazer uma oferta que ele nao podera recusar",
+        "Com grandes poderes vem grandes responsabilidades",
+        "Eu sou a vinganca"};
     const char *opcF[3][3] = {
-        {"A) Certo", "B) Errado", "C) Errado"},
-        {"A) Errado", "B) Certo", "C) Errado"},
-        {"A) Errado", "B) Errado", "C) Certo"},
+        {"A) Poderoso Chefao", "B) Lobo de Wall Street", "C) A Grande Aposta"},
+        {"A) Homem de Ferro", "B) Homem Aranha", "C) Homem invisivel"},
+        {"A) V de Vinganca", "B) Game of Thrones", "C) Batman"},
     };
-    // Vetor contendo as respostas certas de cada frase
     const char respostaF[3] = {'A', 'B', 'C'};
 
     const char *frasesSeries[3] = {
-        "Testando 1S",
-        "Testando 2S",
-        "Testando 3S"};
+        "Eu não estou em perigo, eu sou o perigo",
+        "Voce falhou com essa cidade",
+        "Eu faco minha propria sorte"};
 
     const char *opcS[3][3] = {
-        {"A) Certo", "B) Errado", "C) Errado"},
-        {"A) Errado", "B) Certo", "C) Errado"},
-        {"A) Errado", "B) Errado", "C) Certo"},
+        {"A) Breaking Bad", "B) Peaky Blinders", "C) vikings"},
+        {"A) Flash", "B) Arrow", "C) Titans"},
+        {"A) La Casa de Papel", "B) Squid Game", "C) Suits"},
     };
 
     const char respostaS[3] = {'A', 'B', 'C'};
 
     const char *frasesAleatorio[3] = {
-        "Testando 1A",
-        "Testando 2A",
-        "Testando 3A"};
+        "Voce esquece de varias coisas todos os dias, pode esquece dessa tambem",
+        "Qual foi o Ano da independencia do Brazil",
+        "Qual desses e radiativo"};
 
     const char *opcA[3][3] = {
-        {"A) Certo", "B) Errado", "C) Errado"},
-        {"A) Errado", "B) Certo", "C) Errado"},
-        {"A) Errado", "B) Errado", "C) Certo"},
+        {"A) Halo", "B) assassin's creed ", "C) GTA 5"},
+        {"A) 1989", "B) 1822", "C) 1914"},
+        {"A) Tântalo", "B) Rênio", "C) Uranio"},
     };
 
-    const char respostaA[3] = {'A', 'B', 'C'};
+    const char respostaA[3] = {'C', 'B', 'C'};
 
-    // atribuir a frase original à uma outra variavel, "b[i].op/perguntas" é onde ele deve ir, e o que vem em seguida de onde ele veio
     if (a == 'f' || a == 'F')
     {
         for (int i = 0; i < 3; i++)
@@ -76,7 +84,7 @@ void escolhendo_categoria(char a, Perguntas *b)
             strcpy(b[i].opc[0], opcF[i][0]);
             strcpy(b[i].opc[1], opcF[i][1]);
             strcpy(b[i].opc[2], opcF[i][2]);
-            b[i].respostas = respostaF[i]; // atribui o que está no vetor de respostas ao vetor que vai receber a resposta do usuario.
+            b[i].respostas = respostaF[i];
         }
     }
 
@@ -105,57 +113,14 @@ void escolhendo_categoria(char a, Perguntas *b)
     }
 }
 
-/*
-void Mostrando_Perguntas_Tela(int a, int b, Perguntas d[])
-{
-    char Resposta;
-
-    for (int i = 0; i < a; i++)
-    {
-        printf("Pergunta: %s\n", d[i].questoes);
-
-        for (int j = 0; j < a; j++)
-        {
-            printf("\n%s", d[i].opc[j]);
-        }
-        printf("\nResposta: ");
-        scanf("%c", &Resposta);
-
-        if (Resposta != d[i].respostas)
-        {
-            printf("\n Errado");
-            a -= 1;
-        }
-        else
-        {
-            printf("\nCorreto");
-            b++;
-        }
-    }
-}
-*/
 void Ganhou_Perdeu(int vida, int acertos)
 {
     if (vida == 0)
         printf("GAME OVER");
     else if (acertos == 3)
         printf("YOU WIN");
-    else{
+    else
+    {
         printf("A sua pontuacao maxima foi de: %d", acertos);
     }
 }
-
-/*
-
- if (a == 'F')
-            return Filmes;
-        if (a == 'S')
-            return Series;
-        else if (a == 'A')
-            return Aleatorio;
-
-    return Filmes;
-    }
-
-
-*/

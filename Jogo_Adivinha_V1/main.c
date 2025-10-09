@@ -5,9 +5,7 @@
 
 #include <stdlib.h>
 
-#include <locale.h> //Set local da linguagem
-
-#include <time.h> //Manipulação de Semente
+#include <time.h>
 
 #include "Prototipos.h"
 
@@ -24,12 +22,12 @@ int main(void)
 
     int *ptr_v = &vida;
 
-    printf("Escolha a dificuldade:\nfacil(f)\nmedio(m)\ndificil(d)\n");
+    printf("Escolha a dificuldade:\nFacil(F)\nMedio(M)\nDificil(D)\n");
     scanf("%c", &Letra);
     getchar();
     dificuldade(Letra, ptr_v);
 
-    printf("Escolha Categoria: \nFilmes(F) \nSeries(S) \nAleatorio(A)");
+    printf("\nEscolha Categoria: \nFilmes(F) \nSeries(S) \nAleatorio(A)");
     scanf("%c", &Categoria);
 
     getchar();
@@ -53,16 +51,18 @@ int main(void)
         printf("\nInsira sua resposta:");
         scanf(" %c", &resposta);
 
-        if (resposta == Questoes[x].respostas)
-        {
-            printf("Voce acertou!\n");
-            Acertos = Acertos + 1;
-        }
-        else
-        {
-            printf("Voce errou :(\n");
-            vida--;
-        }
+        if (resposta == 'a' || resposta == 'b' || resposta == 'c')
+
+            if (resposta == Questoes[x].respostas)
+            {
+                printf("Voce acertou!\n");
+                Acertos = Acertos + 1;
+            }
+            else
+            {
+                printf("Voce errou :(\n");
+                vida--;
+            }
         v[i] = v[Repeticao - 1];
         Repeticao--;
         printf("Acertos: %d\n", Acertos);
