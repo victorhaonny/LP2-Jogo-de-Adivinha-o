@@ -6,8 +6,6 @@
 void dificuldade(char a, int *b)
 {
 
-    converso_de_letras(a);
-
     if (a != 'F' && a != 'M' && a != 'D')
     {
         printf("\nDificuldade inserida errada, definindo dificuldade como "
@@ -58,12 +56,12 @@ void escolhendo_categoria(char a, Perguntas *b)
     const char *opcA[3][3] = {
         {"A) Halo", "B) assassin's creed ", "C) GTA 5"},
         {"A) 1989", "B) 1822", "C) 1914"},
-        {"A) Tântalo", "B) Rênio", "C) Uranio"},
+        {"A) Tantalo", "B) Renio", "C) Uranio"},
     };
 
     const char respostaA[3] = {'C', 'B', 'C'};
 
-    if (a == 'f' || a == 'F')
+    if (a == 'F')
     {
         for (int i = 0; i < 3; i++)
         {
@@ -75,7 +73,7 @@ void escolhendo_categoria(char a, Perguntas *b)
         }
     }
 
-    if (a == 's' || a == 'S')
+    if (a == 'S')
     {
         for (int i = 0; i < 3; i++)
         {
@@ -87,7 +85,7 @@ void escolhendo_categoria(char a, Perguntas *b)
         }
     }
 
-    if (a == 'a' || a == 'A')
+    if (a == 'A')
     {
         for (int i = 0; i < 3; i++)
         {

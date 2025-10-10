@@ -34,12 +34,14 @@ int main(void)
     printf("\nEscolha a dificuldade:\nFacil(F)\nMedio(M)\nDificil(D)\n");
     scanf("%c", &Letra);
     getchar();
+    Letra = converso_de_letras(Letra);
+
     dificuldade(Letra, ptr_v);
 
     printf("\nEscolha Categoria: \nFilmes(F) \nSeries(S) \nAleatorio(A)");
     scanf("%c", &Categoria);
 
-    getchar();
+    Categoria = converso_de_letras(Categoria);
 
     escolhendo_categoria(Categoria, PonteiroQ);
 

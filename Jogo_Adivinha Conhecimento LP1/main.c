@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define Q 3
+#include <string.h>
+#include <time.h>
+
 typedef struct
 {
     char questoes[100];
@@ -19,6 +21,9 @@ char converso_de_letras(char a);
 
 int main(void)
 {
+
+    srand(time(NULL));
+
     printf("   __                          _          _       _ _       _       _           \n");
     printf("   \\ \\  ___   __ _  ___     __| | ___    /_\\   __| (_)_   _(_)_ __ | |__   __ _ \n");
     printf("    \\ \\/ _ \\ / _` |/ _ \\   / _` |/ _ \\  //_\\\\ / _` | \\ \\ / / | '_ \\| '_ \\ / _` |\n");
@@ -30,10 +35,11 @@ int main(void)
 
     char Letra, Categoria, resposta;
 
-    int vida, Acertos = 0, Quantidade = Q;
+    int vida, Acertos = 0, Quantidade = 3;
 
     printf("\nEscolha a dificuldade:\nFacil(F)\nMedio(M)\nDificil(D)\n");
     scanf("%c", &Letra);
+
     vida = dificuldade(Letra, vida);
 
     printf("\nEscolha Categoria: \nFilmes(F) \nSeries(S) \nAleatorio(A)");
@@ -45,9 +51,12 @@ int main(void)
         Quantidade--;
     }
 
-    printf("\n#####COMECOU#####");
-
-    srand(time(NULL));
+    printf(" _____                                     \n");
+    printf("/ ____|                                    \n");
+    printf("| |     ___  _ __ ___   ___  ___ ___  _   _ \n");
+    printf("| |    / _ \\| '_ ` _ \\ / _ \\/ __/ _ \\| | | |\n");
+    printf("| |___| (_) | | | | | |  __/ (_| (_) | |_| |\n");
+    printf("\\_____\\___/|_| |_| |_|\\___|\\___\\___/ \\__,_|\n\n");
 
     int Repeticao = 3;
     int v[3] = {0, 1, 2};
@@ -86,13 +95,12 @@ int main(void)
 int dificuldade(char a, int b)
 {
 
-    converso_de_letras(a);
-
     if (a != 'F' && a != 'M' && a != 'D')
     {
         printf("\nDificuldade inserida errada, definindo dificuldade como "
                "normal");
         b = 2;
+        return b;
     }
 
     if (a == 'F')
@@ -101,6 +109,7 @@ int dificuldade(char a, int b)
         b = 2;
     else if (a == 'D')
         b = 1;
+    return b;
 }
 
 Perguntas escolhendo_categoria(char a, Perguntas b)
