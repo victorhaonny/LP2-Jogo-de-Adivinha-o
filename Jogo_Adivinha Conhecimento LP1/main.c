@@ -13,7 +13,7 @@ typedef struct
 
 int dificuldade(char a, int b);
 
-Perguntas escolhendo_categoria(char a, Perguntas b);
+Perguntas escolhendo_categoria(char a, Perguntas b[]);
 
 void Ganhou_Perdeu(int vida, int acertos);
 
@@ -21,8 +21,6 @@ char converso_de_letras(char a);
 
 int main(void)
 {
-
-    srand(time(NULL));
 
     printf("   __                          _          _       _ _       _       _           \n");
     printf("   \\ \\  ___   __ _  ___     __| | ___    /_\\   __| (_)_   _(_)_ __ | |__   __ _ \n");
@@ -35,21 +33,24 @@ int main(void)
 
     char Letra, Categoria, resposta;
 
-    int vida, Acertos = 0, Quantidade = 3;
+    int vida, Acertos = 0;
 
     printf("\nEscolha a dificuldade:\nFacil(F)\nMedio(M)\nDificil(D)\n");
     scanf("%c", &Letra);
+    getchar();
+
+    Letra = converso_de_letras(Letra);
 
     vida = dificuldade(Letra, vida);
 
     printf("\nEscolha Categoria: \nFilmes(F) \nSeries(S) \nAleatorio(A)");
     scanf("%c", &Categoria);
 
-    while (Quantidade)
-    {
-        Questoes[Quantidade] = escolhendo_categoria(Categoria, Questoes[Quantidade]);
-        Quantidade--;
-    }
+    Categoria = converso_de_letras(Categoria);
+
+    escolhendo_categoria(Categoria, Questoes);
+
+    getchar();
 
     printf(" _____                                     \n");
     printf("/ ____|                                    \n");
@@ -57,6 +58,8 @@ int main(void)
     printf("| |    / _ \\| '_ ` _ \\ / _ \\/ __/ _ \\| | | |\n");
     printf("| |___| (_) | | | | | |  __/ (_| (_) | |_| |\n");
     printf("\\_____\\___/|_| |_| |_|\\___|\\___\\___/ \\__,_|\n\n");
+
+    srand(time(NULL));
 
     int Repeticao = 3;
     int v[3] = {0, 1, 2};
@@ -112,7 +115,7 @@ int dificuldade(char a, int b)
     return b;
 }
 
-Perguntas escolhendo_categoria(char a, Perguntas b)
+Perguntas escolhendo_categoria(char a, Perguntas b[])
 {
 
     char frasesFilmes[3][100] = {
@@ -126,71 +129,68 @@ Perguntas escolhendo_categoria(char a, Perguntas b)
         {"A) V de Vinganca", "B) Game of Thrones", "C) Batman"},
     };
 
-    const char respostaF[3] = {'A', 'B', 'C'};
+    char respostaF[3] = {'A', 'B', 'C'};
 
-    const char frasesSeries[3][100] = {
+    char frasesSeries[3][100] = {
         "Eu nao estou em perigo, eu sou o perigo",
         "Voce falhou com essa cidade",
         "Eu faco minha propria sorte"};
 
-    const char opcS[3][3][50] = {
+    char opcS[3][3][50] = {
         {"A) Breaking Bad", "B) Peaky Blinders", "C) vikings"},
         {"A) Flash", "B) Arrow", "C) Titans"},
         {"A) La Casa de Papel", "B) Squid Game", "C) Suits"},
     };
 
-    const char respostaS[3] = {'A', 'B', 'C'};
+    char respostaS[3] = {'A', 'B', 'C'};
 
-    const char frasesAleatorio[3][100] = {
+    char frasesAleatorio[3][100] = {
         "Voce esquece de varias coisas todos os dias, pode esquece dessa tambem",
         "Qual foi o Ano da independencia do Brazil",
         "Qual desses e radiativo"};
 
-    const char opcA[3][3][50] = {
+    char opcA[3][3][50] = {
         {"A) Halo", "B) assassin's creed ", "C) GTA 5"},
         {"A) 1989", "B) 1822", "C) 1914"},
         {"A) Tântalo", "B) Rênio", "C) Uranio"},
     };
 
-    const char respostaA[3] = {'C', 'B', 'C'};
+    char respostaA[3] = {'C', 'B', 'C'};
 
-    if (a == 'f' || a == 'F')
+    if (a == 'F')
     {
         for (int i = 0; i < 3; i++)
         {
-            strcpy(b.questoes, frasesFilmes[0]);
-            strcpy(b.opc[0], opcF[i][0]);
-            strcpy(b.opc[1], opcF[i][1]);
-            strcpy(b.opc[2], opcF[i][2]);
-            b.respostas = respostaF[0];
+            strcpy(b[i].questoes, frasesFilmes[i]);
+            strcpy(b[i].opc[0], opcF[i][0]);
+            strcpy(b[i].opc[1], opcF[i][1]);
+            strcpy(b[i].opc[2], opcF[i][2]);
+            b[i].respostas = respostaF[i];
         }
-        return b;
     }
 
-    if (a == 's' || a == 'S')
+    if (a == 'S')
     {
         for (int i = 0; i < 3; i++)
         {
-            strcpy(b.questoes, frasesSeries[i]);
-            strcpy(b.opc[0], opcS[i][0]);
-            strcpy(b.opc[1], opcS[i][1]);
-            strcpy(b.opc[2], opcS[i][2]);
-            b.respostas = respostaS[i];
+            strcpy(b[i].questoes, frasesSeries[i]);
+            strcpy(b[i].opc[0], opcS[i][0]);
+            strcpy(b[i].opc[1], opcS[i][1]);
+            strcpy(b[i].opc[2], opcS[i][2]);
+            b[i].respostas = respostaS[i];
         }
-        return b;
     }
 
-    if (a == 'a' || a == 'A')
+    if (a == 'A')
     {
         for (int i = 0; i < 3; i++)
         {
-            strcpy(b.questoes, frasesAleatorio[i]);
-            strcpy(b.opc[0], opcA[i][0]);
-            strcpy(b.opc[1], opcA[i][1]);
-            strcpy(b.opc[2], opcA[i][2]);
-            b.respostas = respostaA[i];
+            strcpy(b[i].questoes, frasesAleatorio[i]);
+            strcpy(b[i].opc[0], opcA[i][0]);
+            strcpy(b[i].opc[1], opcA[i][1]);
+            strcpy(b[i].opc[2], opcA[i][2]);
+            b[i].respostas = respostaA[i];
         }
-        return b;
     }
 }
 
