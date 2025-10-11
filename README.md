@@ -27,6 +27,7 @@ Este projeto foi criado como parte da disciplina **LP2** e tem como objetivo apl
 ## 🛠 Tecnologias
 - [C](https://devdocs.io/c/)
 - [CodeBlock](https://www.codeblocks.org/)
+- [VsCode](https://code.visualstudio.com/)
   
 ---
 
