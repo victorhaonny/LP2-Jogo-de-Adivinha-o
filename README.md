@@ -46,7 +46,15 @@ Como compilar e executar:
 gcc main.c funcoes.c -o Jogo_Adivinha
 
 ```
-
+Como criar esse estilo de Texto no Terminal: [Patorjk](https://patorjk.com/)
+```
+   __                          _          _       _ _       _       _           
+   \ \  ___   __ _  ___     __| | ___    /_\   __| (_)_   _(_)_ __ | |__   __ _ 
+    \ \/ _ \ / _` |/ _ \   / _` |/ _ \  //_\\ / _` | \ \ / / | '_ \| '_ \ / _` |
+ /\_/ / (_) | (_| | (_) | | (_| |  __/ /  _  \ (_| | |\ V /| | | | | | | | (_| |
+ \___/ \___/ \__, |\___/   \__,_|\___| \_/ \_/\__,_|_| \_/ |_|_| |_|_| |_|\__,_|
+             |___/                                                              
+```
 ---
 ## 🧑‍🎓 Autores
 - [Victor Haonny](https://github.com/victorhaonny)
