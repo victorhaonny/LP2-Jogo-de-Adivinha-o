@@ -21,22 +21,41 @@ int main(void)
     printf(" \\___/ \\___/ \\__, |\\___/   \\__,_|\\___| \\_/ \\_/\\__,_|_| \\_/ |_|_| |_|_| |_|\\__,_|\n");
     printf("             |___/                                                              \n");
 
-    Perguntas Questoes[3];
+    /*Perguntas *Questoes[3];*/
 
-    Perguntas *PonteiroQ = Questoes;
+    /*Perguntas *PonteiroQ = Questoes;*/
 
-    char Letra, Categoria, resposta;
+    char /*Letra,*/ Categoria, resposta;
 
-    int vida, Acertos = 0;
+    int Acertos = 0;
 
-    int *ptr_v = &vida;
+    /*int *ptr_v = &vida;*/
 
-    printf("\nEscolha a dificuldade:\nFacil(F)\nMedio(M)\nDificil(D)\n");
+    int qntdperguntas;
+
+    /*printf("\nEscolha a dificuldade:\nFacil(F)\nMedio(M)\nDificil(D)\n");
     scanf("%c", &Letra);
     getchar();
     Letra = converso_de_letras(Letra);
 
-    dificuldade(Letra, ptr_v);
+    dificuldade(Letra, ptr_v);*/
+
+    printf("Escreva a quantidade de tentativas você vai ter:");
+    scanf("%d", &qntdperguntas);
+
+    int vida = qntdperguntas;
+
+    getchar();
+
+    Perguntas *Questoes = malloc(qntdperguntas * sizeof(Perguntas));
+
+    if (Questoes == NULL)
+    {
+        printf("Erro ao alocar memoria!\n");
+        return 1;
+    }
+
+    Perguntas *PonteiroQ = Questoes;
 
     printf("\nEscolha Categoria: \nFilmes(F) \nSeries(S) \nAleatorio(A)");
     scanf("%c", &Categoria);
@@ -56,8 +75,14 @@ int main(void)
 
     srand(time(NULL));
 
-    int Repeticao = 3;
-    int v[3] = {0, 1, 2};
+    int Repeticao = qntdperguntas;
+    int v[qntdperguntas];
+
+    for (int i = 0; i < qntdperguntas; i++)
+    {
+        v[i] = i;
+    }
+
     while (Repeticao)
     {
         int i = rand() % Repeticao;
@@ -86,6 +111,8 @@ int main(void)
     }
 
     Ganhou_Perdeu(vida, Acertos);
+
+    free(Questoes);
 
     return 0;
 }
