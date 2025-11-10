@@ -13,34 +13,15 @@
 
 int main(void)
 {
-
-    printf("   __                          _          _       _ _       _       _           \n");
-    printf("   \\ \\  ___   __ _  ___     __| | ___    /_\\   __| (_)_   _(_)_ __ | |__   __ _ \n");
-    printf("    \\ \\/ _ \\ / _` |/ _ \\   / _` |/ _ \\  //_\\\\ / _` | \\ \\ / / | '_ \\| '_ \\ / _` |\n");
-    printf(" /\\_/ / (_) | (_| | (_) | | (_| |  __/ /  _  \\ (_| | |\\ V /| | | | | | | | (_| |\n");
-    printf(" \\___/ \\___/ \\__, |\\___/   \\__,_|\\___| \\_/ \\_/\\__,_|_| \\_/ |_|_| |_|_| |_|\\__,_|\n");
-    printf("             |___/                                                              \n");
-
-    /*Perguntas *Questoes[3];*/
-
-    /*Perguntas *PonteiroQ = Questoes;*/
-
-    char /*Letra,*/ Categoria, resposta;
+    char Categoria, resposta;
 
     int Acertos = 0;
 
-    /*int *ptr_v = &vida;*/
-
     int qntdperguntas;
 
-    /*printf("\nEscolha a dificuldade:\nFacil(F)\nMedio(M)\nDificil(D)\n");
-    scanf("%c", &Letra);
-    getchar();
-    Letra = converso_de_letras(Letra);
+    LOGO_TIPO();
 
-    dificuldade(Letra, ptr_v);*/
-
-    printf("Escreva a quantidade de tentativas você vai ter:");
+    printf("Escreva a quantidade de tentativas voce vai ter:");
     scanf("%d", &qntdperguntas);
 
     int vida = qntdperguntas;
@@ -62,16 +43,13 @@ int main(void)
 
     Categoria = converso_de_letras(Categoria);
 
+    void (*carregar_categoria)(Perguntas *);
+
     escolhendo_categoria(Categoria, PonteiroQ);
 
     getchar();
 
-    printf(" _____                                     \n");
-    printf("/ ____|                                    \n");
-    printf("| |     ___  _ __ ___   ___  ___ ___  _   _ \n");
-    printf("| |    / _ \\| '_ ` _ \\ / _ \\/ __/ _ \\| | | |\n");
-    printf("| |___| (_) | | | | | |  __/ (_| (_) | |_| |\n");
-    printf("\\_____\\___/|_| |_| |_|\\___|\\___\\___/ \\__,_|\n\n");
+    START();
 
     srand(time(NULL));
 
