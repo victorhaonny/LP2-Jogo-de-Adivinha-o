@@ -1,8 +1,13 @@
+// ########################################
+//  CIC UESC - LP2
+//  Aluno: Victor e Reginaldo
+//  Data: 09/10/2025
+// ########################################
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-
 typedef struct
 {
     char questoes[100];
@@ -152,7 +157,7 @@ Perguntas escolhendo_categoria(char a, Perguntas b[])
     char opcA[3][3][50] = {
         {"A) Halo", "B) assassin's creed ", "C) GTA 5"},
         {"A) 1989", "B) 1822", "C) 1914"},
-        {"A) Tântalo", "B) Rênio", "C) Uranio"},
+        {"A) Tantalo", "B) Renio", "C) Uranio"},
     };
 
     char respostaA[3] = {'C', 'B', 'C'};
@@ -196,7 +201,7 @@ Perguntas escolhendo_categoria(char a, Perguntas b[])
 
 void Ganhou_Perdeu(int vida, int acertos)
 {
-    if (vida == 0)
+    if (vida <= 0)
         printf("GAME OVER");
     else if (acertos == 3)
         printf("YOU WIN");

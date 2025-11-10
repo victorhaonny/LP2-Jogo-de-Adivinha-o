@@ -106,8 +106,10 @@ void escolhendo_categoria(char a, Perguntas *b)
 
 void Ganhou_Perdeu(int vida, int acertos)
 {
-    if (vida == 0)
+    if (vida <= 0)
+    {
         printf("GAME OVER");
+    }
     else if (acertos == 3)
         printf("YOU WIN");
     else
