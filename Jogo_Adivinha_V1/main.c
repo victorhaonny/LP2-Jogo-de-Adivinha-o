@@ -9,6 +9,8 @@
 
 #include <time.h>
 
+#include <locale.h>
+
 #include "Prototipos.h"
 
 int main(void)
@@ -41,11 +43,9 @@ int main(void)
     printf("\nEscolha Categoria: \nFilmes(F) \nSeries(S) \nAleatorio(A)");
     scanf("%c", &Categoria);
 
-    Categoria = converso_de_letras(Categoria);
+    Categoria = ptr_conversao(Categoria);
 
-    void (*carregar_categoria)(Perguntas *);
-
-    escolhendo_categoria(Categoria, PonteiroQ);
+    ptr_escolhendo_categoria(Categoria, PonteiroQ);
 
     getchar();
 
@@ -70,7 +70,7 @@ int main(void)
         printf("\nInsira sua resposta:");
         scanf(" %c", &resposta);
 
-        resposta = converso_de_letras(resposta);
+        resposta = ptr_conversao(resposta);
 
         if (resposta == Questoes[x].respostas)
         {
@@ -88,7 +88,7 @@ int main(void)
         printf("Vidas: %d\n", vida);
     }
 
-    Ganhou_Perdeu(vida, Acertos);
+    ptr_Ganhou_Perdeu(vida, Acertos);
 
     free(Questoes);
 

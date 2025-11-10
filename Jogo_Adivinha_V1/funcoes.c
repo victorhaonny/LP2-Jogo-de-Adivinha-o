@@ -1,6 +1,7 @@
 #include "Prototipos.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <locale.h>
 #include <string.h>
 #include <time.h>
 /*void dificuldade(char a, int *b)
@@ -23,6 +24,7 @@
 */
 void escolhendo_categoria(char a, Perguntas *b)
 {
+    setlocale(LC_ALL, "pt_BR.UTF-8");
 
     const char *frasesFilmes[5] = {
         "Vou fazer uma oferta que ele nao podera recusar",
@@ -34,7 +36,7 @@ void escolhendo_categoria(char a, Perguntas *b)
         {"A) Poderoso Chefao", "B) Lobo de Wall Street", "C) A Grande Aposta"},
         {"A) Homem de Ferro", "B) Homem Aranha", "C) Homem invisivel"},
         {"A) V de Vinganca", "B) Game of Thrones", "C) Batman"},
-        {"A) Dou a minima", "B) Não ligo", "C) Acho isso"},
+        {"A) Dou a minima", "B) Nao ligo", "C) Acho isso"},
         {"A) Ligue", "B) Minha Casa", "C) Agora"}};
     const char respostaF[5] = {'A', 'B', 'C', 'A', 'B'};
 
@@ -106,6 +108,7 @@ void escolhendo_categoria(char a, Perguntas *b)
 
 void Ganhou_Perdeu(int vida, int acertos)
 {
+    setlocale(LC_ALL, "pt_BR.UTF-8");
     if (vida <= 0)
     {
         printf("GAME OVER");
@@ -148,3 +151,9 @@ void START(void)
     printf("| |___| (_) | | | | | |  __/ (_| (_) | |_| |\n");
     printf("\\_____\\___/|_| |_| |_|\\___|\\___\\___/ \\__,_|\n\n");
 }
+
+char (*ptr_conversao)(char) = converso_de_letras;
+
+void (*ptr_escolhendo_categoria)(char, Perguntas *) = escolhendo_categoria;
+
+void (*ptr_Ganhou_Perdeu)(int, int) = Ganhou_Perdeu;
