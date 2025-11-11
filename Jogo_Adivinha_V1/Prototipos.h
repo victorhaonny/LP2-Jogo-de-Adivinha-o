@@ -27,8 +27,8 @@ void aleatorios(Perguntas *b);
 
 // Ponteiros para funcoes
 
-void (*ptr_escolhendo_categoria)(char, Perguntas *);
+extern void (*ptr_escolhendo_categoria)(char, Perguntas *);
 
-char (*ptr_conversao)(char);
+extern char (*ptr_conversao)(char);
 
-void (*ptr_Ganhou_Perdeu)(int, int);
+extern void (*ptr_Ganhou_Perdeu)(int, int);
