@@ -28,6 +28,8 @@ int main(void)
 
     int vida = qntdperguntas;
 
+    getchar();
+
     Perguntas *Questoes = malloc(qntdperguntas * sizeof(Perguntas));
 
     if (Questoes == NULL)
@@ -44,6 +46,8 @@ int main(void)
     Categoria = ptr_conversao(Categoria);
 
     ptr_escolhendo_categoria(Categoria, PonteiroQ);
+
+    getchar();
 
     START();
 
@@ -75,7 +79,7 @@ int main(void)
         }
         else
         {
-            printf("Voce errou :\n");
+            printf("Voce errou\n");
             vida--;
         }
         v[i] = v[Repeticao - 1];
