@@ -19,9 +19,11 @@ void LOGO_TIPO(void);
 
 void START(void);
 
+/*
 void Filmes(Perguntas *b);
 void Series(Perguntas *b);
 void aleatorios(Perguntas *b);
+*/
 
 // Ponteiros para funcoes
 
