@@ -100,7 +100,7 @@ void Ganhou_Perdeu(int vida, int acertos)
         printf("YOU WIN");
     else
     {
-        printf("A sua pontuacao maxima foi de: %d", acertos);
+        printf("\nA sua pontuacao maxima foi de: %d", acertos);
     }
 }
 
@@ -133,6 +133,29 @@ void START(void)
     printf("| |    / _ \\| '_ ` _ \\ / _ \\/ __/ _ \\| | | |\n");
     printf("| |___| (_) | | | | | |  __/ (_| (_) | |_| |\n");
     printf("\\_____\\___/|_| |_| |_|\\___|\\___\\___/ \\__,_|\n\n");
+}
+
+void Contando_Cacos(char *vetorVida, char *v, int Q_Tentativas)
+{
+
+    vetorVida = malloc(Q_Tentativas * sizeof(char));
+    v = malloc(Q_Tentativas * sizeof(char));
+    if (vetorVida == NULL && v == NULL)
+    {
+        printf("Alocamento VetorVida(Erro)");
+        exit(1);
+    }
+    else
+    {
+        printf("Vida: ");
+        for (int i = 0; i < Q_Tentativas; i++)
+        {
+            vetorVida[i] = '[';
+            v[i] = ']';
+            printf("%c", vetorVida[i]);
+            printf("%c", v[i]);
+        }
+    }
 }
 
 char (*ptr_conversao)(char) = &converso_de_letras;

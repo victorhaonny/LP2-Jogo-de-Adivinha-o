@@ -15,7 +15,7 @@
 
 int main(void)
 {
-    char Categoria, resposta;
+    char Categoria, resposta, *HP, *HP_2;
 
     int Acertos = 0;
 
@@ -27,7 +27,7 @@ int main(void)
     scanf("%d", &qntdperguntas);
 
     int vida = qntdperguntas;
-
+    Contando_Cacos(HP, HP_2, vida);
     getchar();
 
     Perguntas *Questoes = malloc(qntdperguntas * sizeof(Perguntas));
@@ -85,7 +85,7 @@ int main(void)
         v[i] = v[Repeticao - 1];
         Repeticao--;
         printf("Acertos: %d\n", Acertos);
-        printf("Vidas: %d\n", vida);
+        Contado_Cacos(HP, HP_2, vida);
     }
 
     ptr_Ganhou_Perdeu(vida, Acertos);

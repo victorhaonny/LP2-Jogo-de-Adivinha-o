@@ -32,3 +32,5 @@ void (*ptr_escolhendo_categoria)(char, Perguntas *);
 char (*ptr_conversao)(char);
 
 void (*ptr_Ganhou_Perdeu)(int, int);
+
+
