@@ -79,7 +79,7 @@ int main(void)
         else
         {
             printf("Voce errou\n");
-            vida--;
+            vida = vida - (1 & 1);
         }
         v[i] = v[Repeticao - 1];
         Repeticao--;
