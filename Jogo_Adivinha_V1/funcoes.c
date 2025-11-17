@@ -140,7 +140,7 @@ void Contando_Cacos(char *vetorVida, char *v, int Q_Tentativas)
 
     vetorVida = malloc(Q_Tentativas * sizeof(char));
     v = malloc(Q_Tentativas * sizeof(char));
-    if (vetorVida == NULL && v == NULL)
+    if (vetorVida == NULL || v == NULL)
     {
         printf("Alocamento VetorVida(Erro)");
         exit(1);

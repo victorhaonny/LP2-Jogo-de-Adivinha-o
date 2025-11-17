@@ -17,9 +17,7 @@ int main(void)
 {
     char Categoria, resposta, *HP, *HP_2;
 
-    int Acertos = 0;
-
-    int qntdperguntas;
+    int Acertos = 0, qntdperguntas;
 
     LOGO_TIPO();
 
@@ -27,6 +25,7 @@ int main(void)
     scanf("%d", &qntdperguntas);
 
     int vida = qntdperguntas;
+
     Contando_Cacos(HP, HP_2, vida);
     getchar();
 
@@ -91,6 +90,8 @@ int main(void)
     ptr_Ganhou_Perdeu(vida, Acertos);
 
     free(Questoes);
+    free(HP);
+    free(HP_2);
 
     return 0;
 }
