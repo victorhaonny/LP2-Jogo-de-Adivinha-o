@@ -85,7 +85,7 @@ int main(void)
         v[i] = v[Repeticao - 1];
         Repeticao--;
         printf("Acertos: %d\n", Acertos);
-        Contado_Cacos(HP, HP_2, vida);
+        Contando_Cacos(HP, HP_2, vida);
     }
 
     ptr_Ganhou_Perdeu(vida, Acertos);

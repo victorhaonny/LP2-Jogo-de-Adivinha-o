@@ -145,7 +145,7 @@ void Contando_Cacos(char *vetorVida, char *v, int Q_Tentativas)
         printf("Alocamento VetorVida(Erro)");
         exit(1);
     }
-    else
+    else if (Q_Tentativas > 0)
     {
         printf("Vida: ");
         for (int i = 0; i < Q_Tentativas; i++)
