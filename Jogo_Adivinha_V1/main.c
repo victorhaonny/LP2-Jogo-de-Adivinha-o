@@ -27,7 +27,6 @@ int main(void)
     int vida = qntdperguntas;
 
     Contando_Cacos(HP, HP_2, vida);
-    getchar();
 
     Perguntas *Questoes = malloc(qntdperguntas * sizeof(Perguntas));
 
@@ -45,8 +44,6 @@ int main(void)
     Categoria = ptr_conversao(Categoria);
 
     ptr_escolhendo_categoria(Categoria, PonteiroQ);
-
-    getchar();
 
     START();
 

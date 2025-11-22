@@ -7,8 +7,6 @@ typedef struct
 
 } Perguntas;
 
-void dificuldade(char a, int *b); // Descartada
-
 void escolhendo_categoria(char a, Perguntas *b);
 
 void Ganhou_Perdeu(int vida, int acertos);
@@ -28,11 +26,3 @@ void (*ptr_escolhendo_categoria)(char, Perguntas *);
 char (*ptr_conversao)(char);
 
 void (*ptr_Ganhou_Perdeu)(int, int);
-
-/*
-void Filmes(Perguntas *b);
-void Series(Perguntas *b);
-void aleatorios(Perguntas *b);
-*/
-
-// Ponteiros para funcoes
