@@ -22,7 +22,7 @@ int main(void)
     LOGO_TIPO();
 
     printf("Escreva a quantidade de tentativas voce vai ter:");
-    scanf("%d", &qntdperguntas);
+    scanf(" %d", &qntdperguntas);
 
     int vida = qntdperguntas;
 
@@ -39,7 +39,7 @@ int main(void)
     Perguntas *PonteiroQ = Questoes;
 
     printf("\nEscolha Categoria: \nFilmes(F) \nSeries(S) \nAleatorio(A)");
-    scanf("%c", &Categoria);
+    scanf(" %c", &Categoria);
 
     Categoria = ptr_conversao(Categoria);
 
@@ -81,6 +81,7 @@ int main(void)
         v[i] = v[Repeticao - 1];
         Repeticao--;
         printf("Acertos: %d\n", Acertos);
+
         Contando_Cacos(HP, HP_2, vida);
     }
 

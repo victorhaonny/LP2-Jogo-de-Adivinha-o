@@ -20,7 +20,7 @@ void escolhendo_categoria(char a, Perguntas *b)
         {"A) Homem de Ferro", "B) Homem Aranha", "C) Homem invisivel"},
         {"A) V de Vinganca", "B) Game of Thrones", "C) Batman"},
         {"A) Toy Story", "B) Divertida Mente", "C) Monstros S.A."},
-        {"A) As Crônicas de Nárnia", "B) Senhor dos Anéis", "C) A Roda do Tempo"}};
+        {"A) As Cronicas de Narnia", "B) Senhor dos Aneis", "C) A Roda do Tempo"}};
     const char respostaF[5] = {'A', 'B', 'C', 'A', 'B'};
 
     const char *frasesSeries[5] = {
