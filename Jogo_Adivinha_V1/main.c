@@ -88,8 +88,6 @@ int main(void)
     ptr_Ganhou_Perdeu(vida, Acertos);
 
     free(Questoes);
-    free(HP);
-    free(HP_2);
 
     return 0;
 }

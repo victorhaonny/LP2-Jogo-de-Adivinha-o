@@ -156,6 +156,8 @@ void Contando_Cacos(char *vetorVida, char *v, int Q_Tentativas)
             printf("%c", v[i]);
         }
     }
+    free(vetorVida);
+    free(v);
 }
 
 char (*ptr_conversao)(char) = &converso_de_letras;
