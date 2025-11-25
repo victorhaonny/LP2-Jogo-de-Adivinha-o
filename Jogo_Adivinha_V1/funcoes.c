@@ -89,14 +89,14 @@ void escolhendo_categoria(char a, Perguntas *b)
     }
 }
 
-void Ganhou_Perdeu(int vida, int acertos)
+void Ganhou_Perdeu(int vida, int acertos, int Q_Perguntas)
 {
-    setlocale(LC_ALL, "pt_BR.UTF-8");
+
     if (vida <= 0)
     {
         printf("GAME OVER");
     }
-    else if (acertos == 3)
+    else if (acertos == Q_Perguntas)
         printf("YOU WIN");
     else
     {
@@ -135,33 +135,64 @@ void START(void)
     printf("\\_____\\___/|_| |_| |_|\\___|\\___\\___/ \\__,_|\n\n");
 }
 
-void Contando_Cacos(char *vetorVida, char *v, int Q_Tentativas)
+void Contando_Cacos(char *Parte, char *Parte_2, int Q_Tentativas)
 {
 
-    vetorVida = malloc(Q_Tentativas * sizeof(char));
-    v = malloc(Q_Tentativas * sizeof(char));
-    if (vetorVida == NULL || v == NULL)
+    Parte = malloc(Q_Tentativas * sizeof(char));
+    Parte_2 = malloc(Q_Tentativas * sizeof(char));
+    if (Parte == NULL || Parte_2 == NULL)
     {
         printf("Alocamento VetorVida(Erro)");
         exit(1);
     }
     else if (Q_Tentativas > 0)
     {
-        printf("Vida: ");
         for (int i = 0; i < Q_Tentativas; i++)
         {
-            vetorVida[i] = '[';
-            v[i] = ']';
-            printf("%c", vetorVida[i]);
-            printf("%c", v[i]);
+            Parte[i] = '[';
+            Parte_2[i] = ']';
         }
     }
-    free(vetorVida);
-    free(v);
+    printf("\nVidas:");
+    for (int i = 0; i < Q_Tentativas; i++)
+    {
+        printf("%c", Parte[i]);
+        printf("%c", Parte_2[i]);
+    }
+
+    free(Parte);
+    free(Parte_2);
+}
+
+Buraco *AlocamentoNo(int Quantidade_Perguntas)
+{
+
+    Buraco *Novo = malloc(sizeof(Buraco));
+
+    if (Novo == NULL)
+    {
+        printf("Erro no Alocamento de No");
+        exit(1);
+    }
+
+    Novo->Vida = Quantidade_Perguntas;
+
+    Novo->proximo = NULL;
+
+    return Novo;
+}
+
+Perguntas *AlocamentoQuestoes(int Quantidade)
+{
+    Perguntas *Questoes = malloc(Quantidade * sizeof(Perguntas));
+
+    if (Questoes == NULL)
+    {
+        printf("Erro no Alocamento Questao");
+        exit(1);
+    }
+    else
+        return Questoes;
 }
 
 char (*ptr_conversao)(char) = &converso_de_letras;
-
-void (*ptr_escolhendo_categoria)(char, Perguntas *) = &escolhendo_categoria;
-
-void (*ptr_Ganhou_Perdeu)(int, int) = &Ganhou_Perdeu;

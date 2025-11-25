@@ -1,7 +1,7 @@
 // ########################################
 //  CIC UESC - LP2
 //  Aluno: Victor e Reginaldo
-//  Data: 09/10/2025
+//  Data: 24/10/2025
 // ##########################################
 #include <stdio.h>
 
@@ -15,8 +15,11 @@
 
 int main(void)
 {
-    char Categoria, resposta, *HP, *HP_2;
+    srand(time(NULL));
 
+    Buraco *HP;
+    Perguntas *Questoes;
+    char Categoria, resposta, *Parte_1, *Parte_2;
     int Acertos = 0, qntdperguntas;
 
     LOGO_TIPO();
@@ -24,38 +27,27 @@ int main(void)
     printf("Escreva a quantidade de tentativas voce vai ter:");
     scanf(" %d", &qntdperguntas);
 
-    int vida = qntdperguntas;
+    HP = AlocamentoNo(qntdperguntas);
 
-    Contando_Cacos(HP, HP_2, vida);
+    Questoes = AlocamentoQuestoes(qntdperguntas);
 
-    Perguntas *Questoes = malloc(qntdperguntas * sizeof(Perguntas));
+    Contando_Cacos(Parte_1, Parte_2, HP->Vida);
 
-    if (Questoes == NULL)
-    {
-        printf("Erro ao alocar memoria!\n");
-        return 1;
-    }
-
-    Perguntas *PonteiroQ = Questoes;
-
-    printf("\nEscolha Categoria: \nFilmes(F) \nSeries(S) \nAleatorio(A)");
+    printf("\nEscolha Categoria: \nFilmes(F) \nSeries(S) \nAleatorio(A)\n");
     scanf(" %c", &Categoria);
 
     Categoria = ptr_conversao(Categoria);
 
-    ptr_escolhendo_categoria(Categoria, PonteiroQ);
+    escolhendo_categoria(Categoria, Questoes);
 
     START();
 
-    srand(time(NULL));
+    Contando_Cacos(Parte_1, Parte_2, qntdperguntas);
 
-    int Repeticao = qntdperguntas;
-    int v[qntdperguntas];
+    int Repeticao = qntdperguntas, v[qntdperguntas];
 
     for (int i = 0; i < qntdperguntas; i++)
-    {
         v[i] = i;
-    }
 
     while (Repeticao)
     {
@@ -76,16 +68,14 @@ int main(void)
         else
         {
             printf("Voce errou\n");
-            vida = vida - (1 & 1);
+            HP->Vida = HP->Vida - (1 & 1);
+            Contando_Cacos(Parte_1, Parte_2, HP->Vida);
         }
         v[i] = v[Repeticao - 1];
         Repeticao--;
-        printf("Acertos: %d\n", Acertos);
-
-        Contando_Cacos(HP, HP_2, vida);
     }
 
-    ptr_Ganhou_Perdeu(vida, Acertos);
+    Ganhou_Perdeu(HP->Vida, Acertos, qntdperguntas);
 
     free(Questoes);
 
