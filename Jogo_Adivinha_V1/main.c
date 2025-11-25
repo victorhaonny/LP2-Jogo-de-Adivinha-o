@@ -53,3 +53,26 @@ int main(void)
 
     return 0;
 }
+
+typedef struct
+{
+    int Pontos;
+    struct Tabela *proximo;
+
+} Tabela;
+
+Tabela *Alocamento_No(int Acertos, int Quantidade)
+{
+    Tabela *Novo = malloc(sizeof(Tabela));
+
+    if (Novo == NULL)
+    {
+        printf("Erro no Alocamento Tabela");
+        exit(1);
+    }
+
+    for (int i = 0; i < Quantidade; i++)
+        Novo[i].Pontos = Acertos;
+    Novo->proximo = NULL;
+    return Novo;
+}
