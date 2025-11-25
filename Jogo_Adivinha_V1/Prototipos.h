@@ -7,13 +7,6 @@ typedef struct
 
 } Perguntas;
 
-typedef struct Buraco
-{
-    int Vida;
-    struct Buraco *proximo;
-
-} Buraco;
-
 void escolhendo_categoria(char a, Perguntas *b);
 
 void Ganhou_Perdeu(int vida, int acertos, int Q_Perguntas);
@@ -22,12 +15,12 @@ char converso_de_letras(char a);
 
 void LOGO_TIPO(void);
 
-void Contando_Cacos(char *HP, char *HP_2, int vida);
+void Contando_Cacos(char *HP, char *HP_2, int *vida);
 
 void START(void);
 
-char (*ptr_conversao)(char);
+void Dropando_Questao(int Quantidade_Perguntas, Perguntas *Questoes, char *Part_1, char *Part_2, int *Vida, int *Acertos);
 
-Buraco *AlocamentoNo(int Quantidade_Perguntas);
+char (*ptr_conversao)(char);
 
 Perguntas *AlocamentoQuestoes(int Quantidade);

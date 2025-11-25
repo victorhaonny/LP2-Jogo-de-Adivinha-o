@@ -14,7 +14,7 @@ void escolhendo_categoria(char a, Perguntas *b)
         "Com grandes poderes vem grandes responsabilidades",
         "Eu sou a vinganca",
         "Ao infinito e alem",
-        "Meu precioso…"};
+        "Meu precioso..."};
     const char *opcF[5][5] = {
         {"A) Poderoso Chefao", "B) Lobo de Wall Street", "C) A Grande Aposta"},
         {"A) Homem de Ferro", "B) Homem Aranha", "C) Homem invisivel"},
@@ -135,26 +135,26 @@ void START(void)
     printf("\\_____\\___/|_| |_| |_|\\___|\\___\\___/ \\__,_|\n\n");
 }
 
-void Contando_Cacos(char *Parte, char *Parte_2, int Q_Tentativas)
+void Contando_Cacos(char *Parte, char *Parte_2, int *Q_Tentativas)
 {
 
-    Parte = malloc(Q_Tentativas * sizeof(char));
-    Parte_2 = malloc(Q_Tentativas * sizeof(char));
+    Parte = malloc(*Q_Tentativas * sizeof(char));
+    Parte_2 = malloc(*Q_Tentativas * sizeof(char));
     if (Parte == NULL || Parte_2 == NULL)
     {
         printf("Alocamento VetorVida(Erro)");
         exit(1);
     }
-    else if (Q_Tentativas > 0)
+    else if (*Q_Tentativas > 0)
     {
-        for (int i = 0; i < Q_Tentativas; i++)
+        for (int i = 0; i < *Q_Tentativas; i++)
         {
             Parte[i] = '[';
             Parte_2[i] = ']';
         }
     }
     printf("\nVidas:");
-    for (int i = 0; i < Q_Tentativas; i++)
+    for (int i = 0; i < *Q_Tentativas; i++)
     {
         printf("%c", Parte[i]);
         printf("%c", Parte_2[i]);
@@ -164,7 +164,7 @@ void Contando_Cacos(char *Parte, char *Parte_2, int Q_Tentativas)
     free(Parte_2);
 }
 
-Buraco *AlocamentoNo(int Quantidade_Perguntas)
+/*Buraco *AlocamentoNo(int Quantidade_Perguntas)
 {
 
     Buraco *Novo = malloc(sizeof(Buraco));
@@ -181,7 +181,7 @@ Buraco *AlocamentoNo(int Quantidade_Perguntas)
 
     return Novo;
 }
-
+*/
 Perguntas *AlocamentoQuestoes(int Quantidade)
 {
     Perguntas *Questoes = malloc(Quantidade * sizeof(Perguntas));
@@ -196,3 +196,42 @@ Perguntas *AlocamentoQuestoes(int Quantidade)
 }
 
 char (*ptr_conversao)(char) = &converso_de_letras;
+
+void Dropando_Questao(int Quantidade_Perguntas, Perguntas *Questoes, char *Part_1, char *Part_2, int *Vida, int *Acertos)
+{
+
+    Contando_Cacos(Part_1, Part_2, Vida);
+
+    int Repeticao = Quantidade_Perguntas, v[Quantidade_Perguntas], Acertos = 0;
+
+    char resposta;
+
+    for (int i = 0; i < Quantidade_Perguntas; i++)
+        v[i] = i;
+
+    while (Repeticao)
+    {
+        int i = rand() % Repeticao;
+        int x = v[i];
+
+        printf("\nPergunta: %s\n%s\n%s\n%s", Questoes[x].questoes, Questoes[x].opc[0], Questoes[x].opc[1], Questoes[x].opc[2]);
+        printf("\nInsira sua resposta:");
+        scanf(" %c", &resposta);
+
+        resposta = ptr_conversao(resposta);
+
+        if (resposta == Questoes[x].respostas)
+        {
+            printf("Voce acertou!\n");
+            Acertos = Acertos + 1;
+        }
+        else
+        {
+            printf("Voce errou\n");
+            *Vida = *Vida - (1 & 1);
+            Contando_Cacos(Part_1, Part_2, Vida);
+        }
+        v[i] = v[Repeticao - 1];
+        Repeticao--;
+    }
+}

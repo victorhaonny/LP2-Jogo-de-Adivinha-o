@@ -17,21 +17,24 @@ int main(void)
 {
     srand(time(NULL));
 
-    Buraco *HP;
     Perguntas *Questoes;
+
     char Categoria, resposta, *Parte_1, *Parte_2;
-    int Acertos = 0, qntdperguntas;
+
+    int qntdperguntas, Acertos = 0;
+
+    int *PT_Acertos = &Acertos;
 
     LOGO_TIPO();
 
     printf("Escreva a quantidade de tentativas voce vai ter:");
     scanf(" %d", &qntdperguntas);
 
-    HP = AlocamentoNo(qntdperguntas);
+    int Vida = qntdperguntas;
+
+    int *PT_Vida = &Vida;
 
     Questoes = AlocamentoQuestoes(qntdperguntas);
-
-    Contando_Cacos(Parte_1, Parte_2, HP->Vida);
 
     printf("\nEscolha Categoria: \nFilmes(F) \nSeries(S) \nAleatorio(A)\n");
     scanf(" %c", &Categoria);
@@ -42,40 +45,9 @@ int main(void)
 
     START();
 
-    Contando_Cacos(Parte_1, Parte_2, qntdperguntas);
+    Dropando_Questao(qntdperguntas, Questoes, Parte_1, Parte_2, PT_Vida, PT_Acertos);
 
-    int Repeticao = qntdperguntas, v[qntdperguntas];
-
-    for (int i = 0; i < qntdperguntas; i++)
-        v[i] = i;
-
-    while (Repeticao)
-    {
-        int i = rand() % Repeticao;
-        int x = v[i];
-
-        printf("\nPergunta: %s\n%s\n%s\n%s", Questoes[x].questoes, Questoes[x].opc[0], Questoes[x].opc[1], Questoes[x].opc[2]);
-        printf("\nInsira sua resposta:");
-        scanf(" %c", &resposta);
-
-        resposta = ptr_conversao(resposta);
-
-        if (resposta == Questoes[x].respostas)
-        {
-            printf("Voce acertou!\n");
-            Acertos = Acertos + 1;
-        }
-        else
-        {
-            printf("Voce errou\n");
-            HP->Vida = HP->Vida - (1 & 1);
-            Contando_Cacos(Parte_1, Parte_2, HP->Vida);
-        }
-        v[i] = v[Repeticao - 1];
-        Repeticao--;
-    }
-
-    Ganhou_Perdeu(HP->Vida, Acertos, qntdperguntas);
+    Ganhou_Perdeu(Vida, Acertos, qntdperguntas);
 
     free(Questoes);
 
