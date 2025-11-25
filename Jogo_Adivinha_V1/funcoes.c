@@ -184,7 +184,7 @@ void Dropando_Questao(int Quantidade_Perguntas, Perguntas *Questoes, char *Part_
 
     Contando_Cacos(Part_1, Part_2, Vida);
 
-    int Repeticao = Quantidade_Perguntas, v[Quantidade_Perguntas], Acertos = 0;
+    int Repeticao = Quantidade_Perguntas, v[Quantidade_Perguntas];
 
     char resposta;
 
@@ -205,7 +205,7 @@ void Dropando_Questao(int Quantidade_Perguntas, Perguntas *Questoes, char *Part_
         if (resposta == Questoes[x].respostas)
         {
             printf("Voce acertou!\n");
-            Acertos = Acertos + 1;
+            *Acertos = *Acertos + 1;
         }
         else
         {
