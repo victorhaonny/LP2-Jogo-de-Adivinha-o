@@ -164,24 +164,6 @@ void Contando_Cacos(char *Parte, char *Parte_2, int *Q_Tentativas)
     free(Parte_2);
 }
 
-/*Buraco *AlocamentoNo(int Quantidade_Perguntas)
-{
-
-    Buraco *Novo = malloc(sizeof(Buraco));
-
-    if (Novo == NULL)
-    {
-        printf("Erro no Alocamento de No");
-        exit(1);
-    }
-
-    Novo->Vida = Quantidade_Perguntas;
-
-    Novo->proximo = NULL;
-
-    return Novo;
-}
-*/
 Perguntas *AlocamentoQuestoes(int Quantidade)
 {
     Perguntas *Questoes = malloc(Quantidade * sizeof(Perguntas));
