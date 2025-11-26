@@ -4,6 +4,7 @@
 #include <locale.h>
 #include <string.h>
 #include <time.h>
+#include <ctype.h>
 
 void escolhendo_categoria(char a, Perguntas *b)
 {
@@ -78,7 +79,7 @@ void escolhendo_categoria(char a, Perguntas *b)
 
     if (a == 'A')
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 3; i++)
         {
             strcpy(b[i].questoes, frasesAleatorio[i]);
             strcpy(b[i].opc[0], opcA[i][0]);
@@ -106,7 +107,6 @@ void Ganhou_Perdeu(int vida, int acertos, int Q_Perguntas)
 
 char converso_de_letras(char a)
 {
-
     if (a >= 'a' && a <= 'z')
     {
         return a - 32;

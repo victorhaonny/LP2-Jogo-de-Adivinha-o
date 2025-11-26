@@ -5,6 +5,10 @@
 // ##########################################
 #include <stdio.h>
 
+#include <string.h>
+
+#include <ctype.h>
+
 #include <stdlib.h>
 
 #include <time.h>
@@ -49,7 +53,58 @@ int main(void)
 
     Ganhou_Perdeu(Vida, Acertos, qntdperguntas);
 
-    free(Questoes);
+    printf("\n");
 
+    if (Categoria == 'A' || Categoria == 'a')
+    {
+        FILE *f = fopen("gabaritoA.txt", "r");
+        int c;
+
+        while ((c = fgetc(f)) != EOF)
+        {
+            putchar(c);
+        }
+
+        fclose(f);
+    }
+    else if (Categoria == 'S' || Categoria == 's')
+    {
+        FILE *D = fopen("gabaritoS.txt", "r");
+        int x;
+
+        while ((x = fgetc(D)) != EOF)
+        {
+            putchar(x);
+        }
+
+        fclose(D);
+    }
+    else
+    {
+        FILE *H = fopen("gabaritoF.txt", "r");
+        int b;
+
+        while ((b = fgetc(H)) != EOF)
+        {
+            putchar(b);
+        }
+        fclose(H);
+    }
+    free(Questoes);
+    /*
+    typedef struct{
+        int pontos;
+        struct Tabela *prox;
+    } Tabela;
+
+    Tabela *Novo = malloc(sizeof(Tabela));
+
+Tabela *No(int )
+
+    for (int i = 0; i < Quantidade; i++)
+        Novo[i].Pontos = Acertos;
+    Novo->proximo = NULL;
+
+    */
     return 0;
 }
