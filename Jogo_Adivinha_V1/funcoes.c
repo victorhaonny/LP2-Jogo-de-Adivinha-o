@@ -1,14 +1,11 @@
 #include "Prototipos.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <locale.h>
 #include <string.h>
 #include <time.h>
-#include <ctype.h>
 
 void escolhendo_categoria(char a, Perguntas *b)
 {
-    setlocale(LC_ALL, "pt_BR.UTF-8");
 
     const char *frasesFilmes[5] = {
         "Vou fazer uma oferta que ele nao podera recusar",
@@ -135,9 +132,10 @@ void START(void)
     printf("\\_____\\___/|_| |_| |_|\\___|\\___\\___/ \\__,_|\n\n");
 }
 
-void Contando_Cacos(char *Parte, char *Parte_2, int *Q_Tentativas)
+void Contando_Cacos(int *Q_Tentativas)
 {
-
+    char *Parte;
+    char *Parte_2;
     Parte = malloc(*Q_Tentativas * sizeof(char));
     Parte_2 = malloc(*Q_Tentativas * sizeof(char));
     if (Parte == NULL || Parte_2 == NULL)
@@ -179,10 +177,11 @@ Perguntas *AlocamentoQuestoes(int Quantidade)
 
 char (*ptr_conversao)(char) = &converso_de_letras;
 
-void Dropando_Questao(int Quantidade_Perguntas, Perguntas *Questoes, char *Part_1, char *Part_2, int *Vida, int *Acertos)
+void Dropando_Questao(int Quantidade_Perguntas, Perguntas *Questoes, int *Vida, int *Acertos)
 {
+    srand(time(NULL));
 
-    Contando_Cacos(Part_1, Part_2, Vida);
+    Contando_Cacos(Vida);
 
     int Repeticao = Quantidade_Perguntas, v[Quantidade_Perguntas];
 
@@ -211,7 +210,7 @@ void Dropando_Questao(int Quantidade_Perguntas, Perguntas *Questoes, char *Part_
         {
             printf("Voce errou\n");
             *Vida = *Vida - (1 & 1);
-            Contando_Cacos(Part_1, Part_2, Vida);
+            Contando_Cacos(Vida);
         }
         v[i] = v[Repeticao - 1];
         Repeticao--;
@@ -234,10 +233,10 @@ void Tabela_Jogadores(int Pontos)
     {
         Tabela->proximo = NULL;
         printf("\nNome do jogado: ");
-        scanf("%s", &Tabela->Nome);
+        scanf("%s", Tabela->Nome);
         Tabela->Acertos = Pontos;
     }
-    Tabelinha = fopen("Ranking.txt", "a");
-    fprintf(Tabelinha, "Nome: %s | Pontos: %c", Tabela->Nome, Tabela->Acertos + '0');
+    Tabelinha = fopen("Registro.txt", "a");
+    fprintf(Tabelinha, "\nNome: %s | Pontos: %c", Tabela->Nome, Tabela->Acertos + '0');
     fclose(Tabelinha);
 }

@@ -7,23 +7,18 @@
 
 #include <string.h>
 
-#include <ctype.h>
-
 #include <stdlib.h>
 
 #include <time.h>
-
-#include <locale.h>
 
 #include "Prototipos.h"
 
 int main(void)
 {
-    srand(time(NULL));
 
     Perguntas *Questoes;
 
-    char Categoria, resposta, *Parte_1, *Parte_2;
+    char Categoria;
 
     int qntdperguntas, Acertos = 0;
 
@@ -49,7 +44,7 @@ int main(void)
 
     START();
 
-    Dropando_Questao(qntdperguntas, Questoes, Parte_1, Parte_2, PT_Vida, PT_Acertos);
+    Dropando_Questao(qntdperguntas, Questoes, PT_Vida, PT_Acertos);
 
     Ganhou_Perdeu(Vida, Acertos, qntdperguntas);
 

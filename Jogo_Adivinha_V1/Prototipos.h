@@ -23,11 +23,11 @@ char converso_de_letras(char a);
 
 void LOGO_TIPO(void);
 
-void Contando_Cacos(char *HP, char *HP_2, int *vida);
+void Contando_Cacos(int *vida);
 
 void START(void);
 
-void Dropando_Questao(int Quantidade_Perguntas, Perguntas *Questoes, char *Part_1, char *Part_2, int *Vida, int *Acertos);
+void Dropando_Questao(int Quantidade_Perguntas, Perguntas *Questoes, int *Vida, int *Acertos);
 
 char (*ptr_conversao)(char);
 
