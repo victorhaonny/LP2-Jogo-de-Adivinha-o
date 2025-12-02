@@ -7,6 +7,14 @@ typedef struct
 
 } Perguntas;
 
+typedef struct
+{
+    char Nome[50];
+    int Acertos;
+    struct ranking *proximo;
+
+} Ranking;
+
 void escolhendo_categoria(char a, Perguntas *b);
 
 void Ganhou_Perdeu(int vida, int acertos, int Q_Perguntas);
@@ -24,3 +32,5 @@ void Dropando_Questao(int Quantidade_Perguntas, Perguntas *Questoes, char *Part_
 char (*ptr_conversao)(char);
 
 Perguntas *AlocamentoQuestoes(int Quantidade);
+
+void Tabela_Jogadores(int Pontos);

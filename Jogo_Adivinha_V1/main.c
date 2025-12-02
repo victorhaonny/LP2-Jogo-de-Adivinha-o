@@ -91,20 +91,8 @@ int main(void)
         fclose(H);
     }
     free(Questoes);
-    /*
-    typedef struct{
-        int pontos;
-        struct Tabela *prox;
-    } Tabela;
 
-    Tabela *Novo = malloc(sizeof(Tabela));
+    Tabela_Jogadores(Acertos);
 
-Tabela *No(int )
-
-    for (int i = 0; i < Quantidade; i++)
-        Novo[i].Pontos = Acertos;
-    Novo->proximo = NULL;
-
-    */
     return 0;
 }

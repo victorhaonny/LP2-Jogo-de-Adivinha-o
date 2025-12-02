@@ -217,3 +217,27 @@ void Dropando_Questao(int Quantidade_Perguntas, Perguntas *Questoes, char *Part_
         Repeticao--;
     }
 }
+
+void Tabela_Jogadores(int Pontos)
+{
+
+    FILE *Tabelinha;
+
+    Ranking *Tabela = malloc(sizeof(Ranking));
+
+    if (Tabela == NULL)
+    {
+        printf("Erro no alocamento Tabela");
+        exit(1);
+    }
+    else
+    {
+        Tabela->proximo = NULL;
+        printf("\nNome do jogado: ");
+        scanf("%s", &Tabela->Nome);
+        Tabela->Acertos = Pontos;
+    }
+    Tabelinha = fopen("Ranking.txt", "a");
+    fprintf(Tabelinha, "Nome: %s | Pontos: %c", Tabela->Nome, Tabela->Acertos + '0');
+    fclose(Tabelinha);
+}

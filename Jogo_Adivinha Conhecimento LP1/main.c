@@ -221,3 +221,12 @@ char converso_de_letras(char a)
     else
         return a;
 }
+
+void Regristro(char Nome[], int Acertos)
+{
+
+    
+
+
+
+}
