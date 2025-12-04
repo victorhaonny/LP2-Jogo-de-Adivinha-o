@@ -85,9 +85,10 @@ int main(void)
         }
         fclose(H);
     }
+    
     free(Questoes);
 
-    Tabela_Jogadores(Acertos);
+    Tabela_Jogadores(Acertos, Categoria);
 
     return 0;
 }
