@@ -239,16 +239,17 @@ void Tabela_Jogadores(int Pontos, char Categoria)
     else
     {
         Tabela->proximo = NULL;
-        printf("\nNome do jogado: ");
+        printf("\n\nNome do jogado: ");
         scanf("%s", Tabela->Nome);
         Tabela->Acertos = Pontos;
     }
     // O Arquivo vai recebe os dados de pontuação e o nome do usuario, com o tem o parametro "a" ele vai conserva o arquivo e vai pular outra linha
     // Assim se outro jogado jogar vai aparece o nome dele tambem porem logo a baixo
     Tabelinha = fopen("Registro.txt", "a");
-    fprintf(Tabelinha, "Nome: %s | Pontos: %c | Categoria: %c", Tabela->Nome, Tabela->Acertos + '0', Categoria);
+    fprintf(Tabelinha, "\nNome: %s | Pontos: %c | Categoria: %c", Tabela->Nome, Tabela->Acertos + '0', Categoria);
     fclose(Tabelinha);
 
+<<<<<<< HEAD
     Tabelinha = fopen("Registro.txt", "r");
     int k;
 
@@ -258,4 +259,27 @@ void Tabela_Jogadores(int Pontos, char Categoria)
     }
 
     fclose(Tabelinha);
+=======
+    FILE *H = fopen("Registro.txt", "r");
+    int b;
+
+    while ((b = fgetc(H)) != EOF)
+    {
+        putchar(b);
+    }
+    fclose(H);
+}
+
+void Pontos(void)
+{
+    printf("\n");
+    printf("  _____            _     _             \n");
+    printf(" |  __ \\          (_)   | |            \n");
+    printf(" | |__) |___  __ _ _ ___| |_ _ __ ___  \n");
+    printf(" |  _  // _ \\/ _` | / __| __| '__/ _ \\ \n");
+    printf(" | | \\ \\  __/ (_| | \\__ \\ |_| | | (_) |\n");
+    printf(" |_|  \\_\\___|\\__, |_|___/\\__|_|  \\___/ \n");
+    printf("              __/ |                    \n");
+    printf("             |___/                     \n");
+>>>>>>> 1e97fa5e01e9f69eac886e593baf71d595ec7ba9
 }

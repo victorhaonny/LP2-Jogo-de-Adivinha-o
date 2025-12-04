@@ -90,7 +90,12 @@ int main(void)
 
     free(Questoes);
 
+<<<<<<< HEAD
     // Executa a função e imprime a tabela dos jogadores com seus acertos e em qual categoria ele jogou
+=======
+    Pontos();
+
+>>>>>>> 1e97fa5e01e9f69eac886e593baf71d595ec7ba9
     Tabela_Jogadores(Acertos, Categoria);
 
     return 0;
