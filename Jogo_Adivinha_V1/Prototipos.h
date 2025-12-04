@@ -34,3 +34,7 @@ char (*ptr_conversao)(char);
 Perguntas *AlocamentoQuestoes(int Quantidade);
 
 void Tabela_Jogadores(int Pontos, char Categoria);
+
+void Pontos(void);
+
+void Tabela_Registro(void);
