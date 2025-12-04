@@ -4,7 +4,6 @@ typedef struct
     char questoes[100];
     char opc[3][50];
     char respostas;
-    struct Perguntas *prox;
 } Perguntas;
 
 typedef struct

@@ -50,6 +50,8 @@ int main(void)
 
     printf("\n");
 
+    // A Depender da categoria escolhida, dropa o gabarito de diferentes categorias
+
     if (Categoria == 'A' || Categoria == 'a')
     {
         FILE *f = fopen("gabaritoA.txt", "r");
@@ -85,9 +87,10 @@ int main(void)
         }
         fclose(H);
     }
-    
+
     free(Questoes);
 
+    // Executa a função e imprime a tabela dos jogadores com seus acertos e em qual categoria ele jogou
     Tabela_Jogadores(Acertos, Categoria);
 
     return 0;

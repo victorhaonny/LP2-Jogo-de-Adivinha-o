@@ -6,7 +6,7 @@
 
 void escolhendo_categoria(char a, Perguntas *b)
 {
-
+    // Recebe a opção escolhida pelo usuário, a quantidade de perguntas e recebe as perguntas guardadas;
     const char *frasesFilmes[5] = {
         "Vou fazer uma oferta que ele nao podera recusar",
         "Com grandes poderes vem grandes responsabilidades",
@@ -49,7 +49,7 @@ void escolhendo_categoria(char a, Perguntas *b)
     };
 
     const char respostaA[3] = {'C', 'B', 'C'};
-
+    // Pega a categoria escolhida e copia a string para uma posição no vetor.
     if (a == 'F')
     {
         for (int i = 0; i < 5; i++)
@@ -165,7 +165,7 @@ void Contando_Cacos(int *Q_Tentativas)
     free(Parte);
     free(Parte_2);
 }
-
+// Aloca dinamicamente a quantidade de questões que vão ser jogadas
 Perguntas *AlocamentoQuestoes(int Quantidade)
 {
     Perguntas *Questoes = malloc(Quantidade * sizeof(Perguntas));
@@ -187,10 +187,12 @@ void Dropando_Questao(int Quantidade_Perguntas, Perguntas *Questoes, int *Vida, 
 
     Contando_Cacos(Vida); // Funcao que conta as vidas em formato de caixa []
 
+    // Construção do laço de repetição em que a quantidade de vezes que ele vai se repetir é decidido pela quantidade de perguntas
+
     int Repeticao = Quantidade_Perguntas, v[Quantidade_Perguntas];
 
     char resposta;
-
+    // inicializa indice de pergutnas
     for (int i = 0; i < Quantidade_Perguntas; i++)
         v[i] = i;
 
@@ -216,6 +218,7 @@ void Dropando_Questao(int Quantidade_Perguntas, Perguntas *Questoes, int *Vida, 
             *Vida = *Vida - (1 & 1);
             Contando_Cacos(Vida);
         }
+        // Essa parte substitui o indice atual pelo ultimo disponível
         v[i] = v[Repeticao - 1];
         Repeticao--;
     }

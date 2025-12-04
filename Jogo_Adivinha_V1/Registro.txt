@@ -1,14 +1,1 @@
-<<<<<<< HEAD
-
-Nome: KRATOS | Pontos: 0
-Nome: MARio | Pontos: 1
-Nome: REGINALDO | Pontos: 1
-Nome: Reginaldo | Pontos: 2
-Nome: Roger | Pontos: 2
-Nome: REGINALDO | Pontos: 1
-Nome: POW | Pontos: 1
-Nome: fa | Pontos: 2
-Nome: padsa | Pontos: 1
-=======
 Nome: Duda | Pontos: 5
->>>>>>> f5d48d8101c3a1eeebf9e0c6b19c5c2f7d9bda04
