@@ -11,9 +11,9 @@ typedef struct
 {
     char Nome[50];
     int Acertos;
-    struct ranking *proximo;
+    struct Registro *proximo;
 
-} Ranking;
+} Registro;
 
 void escolhendo_categoria(char a, Perguntas *b);
 
@@ -33,4 +33,4 @@ char (*ptr_conversao)(char);
 
 Perguntas *AlocamentoQuestoes(int Quantidade);
 
-void Tabela_Jogadores(int Pontos);
+void Tabela_Jogadores(int Pontos, char Categoria);

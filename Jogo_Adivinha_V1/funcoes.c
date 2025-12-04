@@ -89,7 +89,8 @@ void escolhendo_categoria(char a, Perguntas *b)
 
 void Ganhou_Perdeu(int vida, int acertos, int Q_Perguntas)
 {
-
+    // Se a vida do usuario for menor que 0 siginifica que ele perdeu o jogo, se a vida for igualmente a quantidade de pergunta ele ganhou
+    // Se ele perde algumas vida mas menos assim acerta só vai dropa a quantidade de acertos.
     if (vida <= 0)
     {
         printf("GAME OVER");
@@ -104,6 +105,7 @@ void Ganhou_Perdeu(int vida, int acertos, int Q_Perguntas)
 
 char converso_de_letras(char a)
 {
+    // Converso de letra, resumindo todas as letras tem um valor fixo na tabela ASII -32 vai bater na maiuscula
     if (a >= 'a' && a <= 'z')
     {
         return a - 32;
@@ -134,6 +136,8 @@ void START(void)
 
 void Contando_Cacos(int *Q_Tentativas)
 {
+    // Dois ponteiros do tipo char vao se alocados, em si ambos vao se agrupa para forma uma caixa na vida e no final ele liberar normalmente ate porque é estetica
+
     char *Parte;
     char *Parte_2;
     Parte = malloc(*Q_Tentativas * sizeof(char));
@@ -175,13 +179,13 @@ Perguntas *AlocamentoQuestoes(int Quantidade)
         return Questoes;
 }
 
-char (*ptr_conversao)(char) = &converso_de_letras;
+char (*ptr_conversao)(char) = &converso_de_letras; // Ponteiro para funcão converso de letras
 
 void Dropando_Questao(int Quantidade_Perguntas, Perguntas *Questoes, int *Vida, int *Acertos)
 {
     srand(time(NULL));
 
-    Contando_Cacos(Vida);
+    Contando_Cacos(Vida); // Funcao que conta as vidas em formato de caixa []
 
     int Repeticao = Quantidade_Perguntas, v[Quantidade_Perguntas];
 
@@ -217,12 +221,12 @@ void Dropando_Questao(int Quantidade_Perguntas, Perguntas *Questoes, int *Vida, 
     }
 }
 
-void Tabela_Jogadores(int Pontos)
+void Tabela_Jogadores(int Pontos, char Categoria)
 {
-
+    // Aqui acontece criacao de um arquivo com base em dados de uma struct no que ainda vai recebe valores
     FILE *Tabelinha;
 
-    Ranking *Tabela = malloc(sizeof(Ranking));
+    Registro *Tabela = malloc(sizeof(Registro));
 
     if (Tabela == NULL)
     {
@@ -236,7 +240,9 @@ void Tabela_Jogadores(int Pontos)
         scanf("%s", Tabela->Nome);
         Tabela->Acertos = Pontos;
     }
+    // O Arquivo vai recebe os dados de pontuação e o nome do usuario, com o tem o parametro "a" ele vai conserva o arquivo e vai pular outra linha
+    // Assim se outro jogado jogar vai aparece o nome dele tambem porem logo a baixo
     Tabelinha = fopen("Registro.txt", "a");
-    fprintf(Tabelinha, "\nNome: %s | Pontos: %c", Tabela->Nome, Tabela->Acertos + '0');
+    fprintf(Tabelinha, "Nome: %s | Pontos: %c | Categoria: %c", Tabela->Nome, Tabela->Acertos + '0', Categoria);
     fclose(Tabelinha);
 }
