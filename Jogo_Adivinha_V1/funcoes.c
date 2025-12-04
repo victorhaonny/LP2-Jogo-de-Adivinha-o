@@ -239,4 +239,14 @@ void Tabela_Jogadores(int Pontos)
     Tabelinha = fopen("Registro.txt", "a");
     fprintf(Tabelinha, "\nNome: %s | Pontos: %c", Tabela->Nome, Tabela->Acertos + '0');
     fclose(Tabelinha);
+
+    Tabelinha = fopen("Registro.txt", "r");
+    int k;
+
+    while ((k = fgetc(Tabelinha)) != EOF)
+    {
+        putchar(k);
+    }
+
+    fclose(Tabelinha);
 }
